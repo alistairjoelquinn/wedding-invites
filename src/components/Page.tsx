@@ -4,7 +4,7 @@ interface PageProps {
     children: any;
 }
 
-const Page: React.FC<PageProps> = ({ children }) => (
+const Page = ({ children }: PageProps) => (
     <div>
         <Header />
         {children}
