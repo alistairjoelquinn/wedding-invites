@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const Home: React.FC = () => (
+const Home = () => (
     <div>
         <Head>
             <title>Alistair Quinn Next Typescript Template</title>
