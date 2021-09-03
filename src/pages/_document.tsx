@@ -10,7 +10,8 @@ export default class MyDocument extends Document {
                 <Head>
                     <meta name="theme-color" content={theme.palette.primary.main} />
                     <link
-                        rel="stylesheet"
+                        rel="preload"
+                        as="style"
                         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
                     />
                 </Head>
