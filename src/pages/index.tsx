@@ -1,16 +1,17 @@
+import { Card, Paper, Typography } from '@material-ui/core';
 import Head from 'next/head';
 
 const Home = () => (
-    <div>
+    <Paper>
         <Head>
             <title>Alistair Quinn Next Typescript Template</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main>
-            <div>Nextjs / Typescript template body</div>
-        </main>
-    </div>
+        <Card>
+            <Typography>Nextjs / Typescript template body</Typography>
+        </Card>
+    </Paper>
 );
 
 export default Home;
