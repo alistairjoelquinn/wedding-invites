@@ -1,6 +1,6 @@
 import { Card, Paper, Typography } from '@material-ui/core';
 import Head from 'next/head';
-import {connectToDatabase} from '../../lib/mongodb';
+import { connectToDatabase } from '../../lib/mongodb';
 
 interface Property {
     _id: string;
@@ -8,18 +8,21 @@ interface Property {
     summary: string;
 }
 
-const Home = () => (
-    <Paper>
-        <Head>
-            <title>Alistair Quinn Next Typescript Template</title>
-            <link rel="icon" href="/favicon.ico" />
-        </Head>
+const Home = (props: any) => {
+    console.log('props: ', props);
+    return (
+        <Paper>
+            <Head>
+                <title>Alistair Quinn Next Typescript Template</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
-        <Card>
-            <Typography>Nextjs / Typescript template body</Typography>
-        </Card>
-    </Paper>
-);
+            <Card>
+                <Typography>Nextjs / Typescript template body</Typography>
+            </Card>
+        </Paper>
+    );
+};
 
 export async function getServerSideProps() {
     const { db } = await connectToDatabase();
