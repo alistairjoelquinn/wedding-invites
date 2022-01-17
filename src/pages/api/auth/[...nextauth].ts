@@ -1,14 +1,12 @@
 import NextAuth from 'next-auth';
-import Providers from 'next-auth/providers';
+import EmailProvider from 'next-auth/providers/email';
 
-const options = {
+export default NextAuth({
     providers: [
-        Providers.Email({
+        EmailProvider({
             server: process.env.SMTP_SERVER,
             from: process.env.EMAIL_FROM,
         }),
     ],
     debug: true,
-};
-
-export default (req, res) => NextAuth(req, res, options);
+});
