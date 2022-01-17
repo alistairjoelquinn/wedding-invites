@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { connectToDatabase } from '../../../lib/mongodb';
 
@@ -10,4 +10,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { result } = await db.collection('bookings').insertOne(item);
 
     res.json(result);
-}
+};

@@ -1,6 +1,7 @@
 import { Card, Paper, Typography } from '@material-ui/core';
 import Head from 'next/head';
 import { connectToDatabase } from '../../lib/mongodb';
+import json from '../../lib/json';
 
 interface Property {
     _id: string;
@@ -28,7 +29,7 @@ export async function getServerSideProps() {
     const { db } = await connectToDatabase();
     const data = await db.collection('listingsAndReviews').find().limit(20).toArray();
 
-    const properties = JSON.parse(JSON.stringify(data));
+    const properties = json(data);
 
     const results = properties.map((item: Property) => ({
         name: item.name,
