@@ -1,7 +1,8 @@
-import { Card, Paper, Typography } from '@material-ui/core';
+import { Paper } from '@mui/material';
 import Head from 'next/head';
 import { connectToDatabase } from '../../lib/mongodb';
 import json from '../../lib/json';
+import GuestForm from '@/components/GuestForm';
 
 interface Property {
     _id: string;
@@ -12,16 +13,14 @@ interface Property {
 const Home = (props: any) => {
     console.log('props: ', props);
     return (
-        <Paper>
+        <main>
             <Head>
                 <title>Wedding Invitations</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Card>
-                <Typography>Wedding invitations</Typography>
-            </Card>
-        </Paper>
+            <GuestForm />
+        </main>
     );
 };
 

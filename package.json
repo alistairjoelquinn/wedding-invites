@@ -10,7 +10,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
+    "@emotion/cache": "^11.7.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.3.0",
     "aws-sdk": "^2.1058.0",
     "mongodb": "^4.3.0",
