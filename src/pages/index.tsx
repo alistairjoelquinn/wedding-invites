@@ -14,12 +14,12 @@ const Home = (props: any) => {
     return (
         <Paper>
             <Head>
-                <title>Alistair Quinn Next Typescript Template</title>
+                <title>Wedding Invitations</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <Card>
-                <Typography>Nextjs / Typescript template body</Typography>
+                <Typography>Wedding invitations</Typography>
             </Card>
         </Paper>
     );
