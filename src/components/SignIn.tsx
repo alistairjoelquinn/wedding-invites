@@ -5,20 +5,23 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useSession } from "next-auth/react"
 
-export default function SignIn({ csrfToken } : {csrfToken: string}) {
-  console.log('csrfToken: ', csrfToken);
+export default function SignIn() {
+  const { data: session } = useSession()
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
+
+  console.log('session in sign in: ', session);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const response = await fetch('/api/auth/callback/credentials', {
       method: 'POST',
-      body: JSON.stringify({username, password, csrfToken}),
+      body: JSON.stringify({username, password}),
     });
 
     if (response.status === 200) {
