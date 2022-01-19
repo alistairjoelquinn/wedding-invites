@@ -4,19 +4,28 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
-export default function SignIn() {
+export default function SignIn({ csrfToken } : {csrfToken: string}) {
+  console.log('csrfToken: ', csrfToken);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
 
-    await fetch('/api/auth/callback/credentials', {
+    const response = await fetch('/api/auth/callback/credentials', {
       method: 'POST',
-      body: data,
-    })
-    router.push('/form');
+      body: JSON.stringify({username, password, csrfToken}),
+    });
+
+    if (response.status === 200) {
+      router.push('/form');
+    } else {
+      setError('Invalid username or password!')
+    }
   };
 
   return (
@@ -29,9 +38,11 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
+          {!error ? <Typography component="h1" variant="h5">
             Richard and Carolina invite you...
-          </Typography>
+          </Typography> : <Typography component="h1" variant="h5">
+            {error}
+          </Typography>}
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
@@ -42,6 +53,7 @@ export default function SignIn() {
               name="username"
               autoComplete="username"
               autoFocus
+              onChange={(e) => setUsername(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -52,6 +64,8 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+
             />
             <Button
               type="submit"
@@ -66,3 +80,5 @@ export default function SignIn() {
       </Container>
   );
 }
+
+
