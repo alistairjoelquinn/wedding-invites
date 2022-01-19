@@ -1,11 +1,27 @@
 import NextAuth from 'next-auth';
-import EmailProvider from 'next-auth/providers/email';
+import Credentials from 'next-auth/providers/credentials';
 
 export default NextAuth({
     providers: [
-        EmailProvider({
-            server: process.env.SMTP_SERVER,
-            from: process.env.EMAIL_FROM,
+        Credentials({
+            name: 'Credentials',
+            credentials: {
+                username: { label: 'Username', type: 'text' },
+                password: { label: 'Password', type: 'password' },
+            },
+            async authorize(credentials) {
+                if(!credentials || !credentials.username || !credentials.password) {
+                    return null;
+                } else if (
+                    credentials.username === process.env.NEXT_AUTH_USERNAME &&
+                    credentials.password === process.env.NEXT_AUTH_PASSWORD
+                ) {
+                    return {
+                        accepted: true,
+                    };
+                }
+                return null;
+            },
         }),
     ],
     debug: true,
