@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
-import { SessionProvider } from "next-auth/react"
+import { Provider } from 'next-auth/client';
 
 import theme from '@/styles/theme';
 import createEmotionCache from '@/../lib/createEmotionCache';
@@ -20,11 +20,11 @@ export default function MyApp(props) {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <SessionProvider session={pageProps.session}>
+        <Provider session={pageProps.session}>
           <Page>
             <Component {...pageProps} />
           </Page>
-        </SessionProvider>
+        </Provider>
       </ThemeProvider>
     </CacheProvider>
   );

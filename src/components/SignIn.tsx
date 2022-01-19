@@ -5,10 +5,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useSession } from "next-auth/react"
+import { useSession } from "next-auth/client"
 
 export default function SignIn() {
-  const { data: session } = useSession()
+  const [session] = useSession()
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
