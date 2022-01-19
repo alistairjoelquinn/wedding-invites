@@ -6,10 +6,10 @@ const Header = () => (
     <AppBar
     position="absolute"
     color="default"
-    elevation={0}
+    elevation={1}
     sx={{
       position: 'relative',
-      borderBottom: (t) => `1px solid ${t.palette.divider}`,
+    //   borderBottom: (t) => `1px solid ${t.palette.divider}`,
     }}
   >
     <Toolbar>
