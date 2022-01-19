@@ -1,11 +1,10 @@
 import Head from 'next/head';
-import { useSession } from "next-auth/react"
+import { useSession } from 'next-auth/react';
 
-import SignIn from '@/components/SignIn';
-
+import { Typography } from '@mui/material';
 
 const Home = () => {
-    const { data: session } = useSession()
+    const { data: session } = useSession();
 
     console.log('session: ', session);
     return (
@@ -14,7 +13,7 @@ const Home = () => {
                 <title>Wedding Invitations</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <SignIn />
+            <Typography>HOME PAGE</Typography>
         </main>
     );
 };
