@@ -5,30 +5,29 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useSession } from "next-auth/client"
 
 export default function SignIn() {
-  const [session] = useSession()
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
 
-  console.log('session in sign in: ', session);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     const response = await fetch('/api/auth/callback/credentials', {
       method: 'POST',
       body: JSON.stringify({username, password}),
     });
+    console.log('response: ', response);
 
-    if (response.status === 200) {
-      router.push('/form');
-    } else {
-      setError('Invalid username or password!')
-    }
+    const data = await response.json();
+    console.log('data: ', data);
+
+    // if (response.status === 200) {
+    //   router.push('/form');
+    // } else {
+    //   setError('Invalid username or password!')
+    // }
   };
 
   return (

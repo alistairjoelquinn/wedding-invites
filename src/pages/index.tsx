@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import SignIn from '@/components/SignIn';
 
+
 const Home = () => {
     return (
         <main>
