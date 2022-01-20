@@ -11,6 +11,7 @@ export default function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -25,9 +26,16 @@ export default function SignIn() {
                 },
                 body: JSON.stringify({ username, password, csrfToken }),
             });
-            window.location.replace('/');
+            if (
+                res.url ===
+                `${process.env.NEXTAUTH_URL}/signin?callbackUrl=${process.env.NEXTAUTH_URL}&error=CredentialsSignin`
+            ) {
+                setError('Incorrect username or password!');
+            } else {
+                window.location.replace('/');
+            }
         } catch (err) {
-            setError('Error signing in');
+            setError('Oops, something went wrong!');
         }
     };
 
