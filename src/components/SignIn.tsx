@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useState } from 'react';
 import { getCsrfToken } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 export default function SignIn() {
     const [username, setUsername] = useState('');
@@ -24,10 +25,8 @@ export default function SignIn() {
                 },
                 body: JSON.stringify({ username, password, csrfToken }),
             });
-            const data = res.json();
-            console.log('data: ', data);
+            window.location.replace('/');
         } catch (err) {
-            console.log('errOROROROR: ', err);
             setError('Error signing in');
         }
     };
