@@ -5,13 +5,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useState } from 'react';
 import { getCsrfToken } from 'next-auth/react';
-import { useRouter } from 'next/router';
 
 export default function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -28,7 +26,7 @@ export default function SignIn() {
             });
             if (
                 res.url ===
-                `${process.env.NEXTAUTH_URL}/signin?callbackUrl=${process.env.NEXTAUTH_URL}&error=CredentialsSignin`
+                `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/signin?callbackUrl=${process.env.NEXT_PUBLIC_NEXTAUTH_URL}&error=CredentialsSignin`
             ) {
                 setError('Incorrect username or password!');
             } else {
