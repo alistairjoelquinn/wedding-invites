@@ -1,7 +1,8 @@
 import Head from 'next/head';
+import type { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider } from '@emotion/react';
+import { CacheProvider, EmotionCache } from '@emotion/react';
 import { SessionProvider } from 'next-auth/react';
 
 import theme from '@/styles/theme';
@@ -10,7 +11,11 @@ import Page from '@/components/Page';
 
 const clientSideEmotionCache = createEmotionCache();
 
-const App = (props) => {
+interface MyAppProps extends AppProps {
+    emotionCache?: EmotionCache;
+}
+
+const App = (props: MyAppProps) => {
     const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
     return (
