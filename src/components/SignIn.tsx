@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { getCsrfToken } from 'next-auth/react';
 
 export default function SignIn() {
     const [username, setUsername] = useState('');
@@ -13,11 +14,15 @@ export default function SignIn() {
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        console.log('running');
         e.preventDefault();
+        console.log('running');
+        const csrfToken = await getCsrfToken();
+
+        console.log('{ username, password, csrfToken }: ', { username, password, csrfToken });
+
         const response = await fetch('/api/auth/callback/credentials', {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ username, password, csrfToken }),
         });
         console.log('response: ', response);
 
