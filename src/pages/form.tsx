@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
+import type { NextPage } from 'next';
 
 import GuestForm from '@/components/GuestForm';
 import spin from '@/styles/spin.module.css';
 
-export default function Form() {
+const Form: NextPage = () => {
     const router = useRouter();
     const { data: session } = useSession({
         required: true,
@@ -16,4 +17,6 @@ export default function Form() {
     console.log('session in form page: ', session);
 
     return <div>{session ? <GuestForm /> : <div className={spin.spin} />}</div>;
-}
+};
+
+export default Form;

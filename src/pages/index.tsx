@@ -3,11 +3,12 @@ import { useSession } from 'next-auth/react';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import type { NextPage } from 'next';
 
 import spin from '@/styles/spin.module.css';
 import flex from '@/../lib/flex';
 
-const Home = () => {
+const Home: NextPage = () => {
     const router = useRouter();
     const { data: session } = useSession({
         required: true,
