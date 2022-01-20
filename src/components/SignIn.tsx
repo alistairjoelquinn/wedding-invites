@@ -3,7 +3,6 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { getCsrfToken } from 'next-auth/react';
 
@@ -11,29 +10,22 @@ export default function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const router = useRouter();
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log('running');
+    const handleSubmit = async () => {
         const csrfToken = await getCsrfToken();
 
-        console.log('{ username, password, csrfToken }: ', { username, password, csrfToken });
-
-        const response = await fetch('/api/auth/callback/credentials', {
-            method: 'POST',
-            body: JSON.stringify({ username, password, csrfToken }),
-        });
-        console.log('response: ', response);
-
-        // const data = await response.json();
-        // console.log('data: ', data);
-
-        // if (response.status === 200) {
-        //   router.push('/form');
-        // } else {
-        //   setError('Invalid username or password!')
-        // }
+        try {
+            fetch('/api/auth/callback/credentials', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password, csrfToken }),
+            });
+        } catch (e) {
+            setError('Error signing in');
+        }
     };
 
     return (
