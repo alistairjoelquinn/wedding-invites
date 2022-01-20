@@ -34,7 +34,17 @@ export default NextAuth({
         }),
     ],
     pages: {
-        signIn: '/',
+        signIn: '/signin',
     },
     secret: process.env.NEXT_AUTH_SECRET,
+    callbacks: {
+        async signIn(signInValues) {
+            console.log('signInValues: ', signInValues);
+            return true;
+        },
+        async session({ session, user, token }) {
+            console.log('SESSIONISONSOIN');
+            return session;
+        },
+    },
 });

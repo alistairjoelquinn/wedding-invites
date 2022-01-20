@@ -26,8 +26,8 @@ export default function SignIn() {
         });
         console.log('response: ', response);
 
-        const data = await response.json();
-        console.log('data: ', data);
+        // const data = await response.json();
+        // console.log('data: ', data);
 
         // if (response.status === 200) {
         //   router.push('/form');
