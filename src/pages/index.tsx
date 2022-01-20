@@ -19,10 +19,6 @@ const Home = () => {
 
     return (
         <Container component="main" sx={{ ...flex, minHeight: '90vh' }}>
-            <Head>
-                <title>Wedding Invitations</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
             {!session && <div className={spin.spin} />}
             {session && (
                 <Container sx={{ ...flex, flexDirection: 'column' }}>
