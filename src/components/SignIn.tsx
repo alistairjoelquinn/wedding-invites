@@ -11,11 +11,12 @@ export default function SignIn() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         const csrfToken = await getCsrfToken();
 
         try {
-            fetch('/api/auth/callback/credentials', {
+            const res = await fetch('/api/auth/callback/credentials', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -23,7 +24,9 @@ export default function SignIn() {
                 },
                 body: JSON.stringify({ username, password, csrfToken }),
             });
-        } catch (e) {
+            const data = res.json();
+            console.log('data: ', data);
+        } catch (err) {
             setError('Error signing in');
         }
     };

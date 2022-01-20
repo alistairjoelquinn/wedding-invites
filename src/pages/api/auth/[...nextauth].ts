@@ -13,9 +13,7 @@ export default NextAuth({
                 console.log('credentials: ', credentials);
                 if (!credentials || !credentials.username || !credentials.password) {
                     console.log('NULL');
-                    return {
-                        accepted: false,
-                    };
+                    return null;
                 }
                 if (
                     credentials.username === process.env.NEXT_AUTH_USERNAME &&
@@ -27,9 +25,7 @@ export default NextAuth({
                     };
                 }
                 console.log('OTHER NULL');
-                return {
-                    accepted: false,
-                };
+                return null;
             },
         }),
     ],
