@@ -27,6 +27,7 @@ export default function SignIn() {
             const data = res.json();
             console.log('data: ', data);
         } catch (err) {
+            console.log('errOROROROR: ', err);
             setError('Error signing in');
         }
     };
