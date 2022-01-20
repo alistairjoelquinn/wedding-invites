@@ -1,7 +1,11 @@
+import { useSession } from 'next-auth/react';
+
 import SignIn from '@/components/SignIn';
 
 const SignInPage = () => {
-    console.log('signin');
+    const { data: session } = useSession();
+    console.log('session in SIGNIN: ', session);
+
     return (
         <div>
             <SignIn />

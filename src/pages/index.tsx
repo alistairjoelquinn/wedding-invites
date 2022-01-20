@@ -10,12 +10,13 @@ const Home = () => {
     const router = useRouter();
 
     useLayoutEffect(() => {
+        console.log('session from INDEX layouteffect', session);
         if (session === null) {
+            console.log('REDIRECT');
             router.replace('/signin');
         }
     }, [session, router]);
 
-    console.log('session: ', session);
     return (
         <main>
             <Head>
