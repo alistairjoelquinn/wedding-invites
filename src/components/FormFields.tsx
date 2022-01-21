@@ -5,6 +5,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import Slider from '@mui/material/Slider';
 
 export default function AddressForm() {
     return (
@@ -36,7 +37,7 @@ export default function AddressForm() {
                 <Grid item xs={12} sm={12}>
                     <FormControl sx={{ verticalAlign: 'middle' }}>
                         <FormLabel required id="demo-radio-buttons-group-label">
-                            Are you bringing a partner / +1 ?
+                            Are you bringing a partner or plus one?
                         </FormLabel>
                         <RadioGroup
                             aria-labelledby="rsvp-radio-buttons-group-label"
@@ -50,14 +51,44 @@ export default function AddressForm() {
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
-                    <FormControl>
+                    <FormControl fullWidth>
                         <FormLabel id="demo-radio-buttons-group-label">If so what is their name?</FormLabel>
                         <TextField
                             id="partnerName"
                             name="partnerName"
-                            label="Partner / +1 name"
+                            label="Partner or plus one name"
                             fullWidth
                             variant="standard"
+                        />
+                    </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                    <FormControl sx={{ verticalAlign: 'middle' }}>
+                        <FormLabel required id="demo-radio-buttons-group-label">
+                            Are you bringing children?
+                        </FormLabel>
+                        <RadioGroup
+                            aria-labelledby="rsvp-radio-buttons-group-label"
+                            defaultValue="yes"
+                            name="radio-buttons-group"
+                            sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
+                        >
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                        </RadioGroup>
+                    </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                    <FormControl fullWidth>
+                        <FormLabel id="demo-radio-buttons-group-label">If so how many?</FormLabel>
+                        <Slider
+                            aria-label="Always visible"
+                            defaultValue={0}
+                            step={1}
+                            marks
+                            min={0}
+                            max={10}
+                            valueLabelDisplay="auto"
                         />
                     </FormControl>
                 </Grid>
