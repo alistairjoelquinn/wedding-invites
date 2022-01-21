@@ -13,8 +13,11 @@ export default function AddressForm() {
                 <Grid item xs={12} sm={12}>
                     <TextField required id="fullName" name="fullName" label="Full name" fullWidth variant="standard" />
                 </Grid>
+                <Grid item xs={12}>
+                    <TextField required id="email" name="email" label="Email Address" fullWidth variant="standard" />
+                </Grid>
                 <Grid item xs={12} sm={12}>
-                    <FormControl>
+                    <FormControl sx={{ verticalAlign: 'middle' }}>
                         <FormLabel required id="demo-radio-buttons-group-label">
                             Are you able to attend?
                         </FormLabel>
@@ -22,7 +25,7 @@ export default function AddressForm() {
                             aria-labelledby="rsvp-radio-buttons-group-label"
                             defaultValue="yes"
                             name="radio-buttons-group"
-                            sx={{ flexDirection: 'row' }}
+                            sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -30,27 +33,7 @@ export default function AddressForm() {
                         </RadioGroup>
                     </FormControl>
                 </Grid>
-                <Grid item xs={12}>
-                    <TextField
-                        required
-                        id="address1"
-                        name="address1"
-                        label="Address line 1"
-                        fullWidth
-                        autoComplete="shipping address-line1"
-                        variant="standard"
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField
-                        id="address2"
-                        name="address2"
-                        label="Address line 2"
-                        fullWidth
-                        autoComplete="shipping address-line2"
-                        variant="standard"
-                    />
-                </Grid>
+
                 <Grid item xs={12} sm={6}>
                     <TextField
                         required
