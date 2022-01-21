@@ -15,7 +15,9 @@ export default function AddressForm() {
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl>
-                        <FormLabel id="demo-radio-buttons-group-label">Are you able to attend?</FormLabel>
+                        <FormLabel required id="demo-radio-buttons-group-label">
+                            Are you able to attend?
+                        </FormLabel>
                         <RadioGroup
                             aria-labelledby="rsvp-radio-buttons-group-label"
                             defaultValue="yes"
