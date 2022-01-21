@@ -27,48 +27,39 @@ export default function AddressForm() {
                             name="radio-buttons-group"
                             sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                            <FormControlLabel value="maybe" control={<Radio />} label="Maybe" />
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes, definitely" />
+                            <FormControlLabel value="no" control={<Radio />} label="No, I can't" />
+                            <FormControlLabel value="maybe" control={<Radio />} label="It's a maybe for now" />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
-
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="city"
-                        name="city"
-                        label="City"
-                        fullWidth
-                        autoComplete="shipping address-level2"
-                        variant="standard"
-                    />
+                <Grid item xs={12} sm={12}>
+                    <FormControl sx={{ verticalAlign: 'middle' }}>
+                        <FormLabel required id="demo-radio-buttons-group-label">
+                            Are you bringing a partner / +1 ?
+                        </FormLabel>
+                        <RadioGroup
+                            aria-labelledby="rsvp-radio-buttons-group-label"
+                            defaultValue="yes"
+                            name="radio-buttons-group"
+                            sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
+                        >
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                        </RadioGroup>
+                    </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField id="state" name="state" label="State/Province/Region" fullWidth variant="standard" />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="zip"
-                        name="zip"
-                        label="Zip / Postal code"
-                        fullWidth
-                        autoComplete="shipping postal-code"
-                        variant="standard"
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="country"
-                        name="country"
-                        label="Country"
-                        fullWidth
-                        autoComplete="shipping country"
-                        variant="standard"
-                    />
+                <Grid item xs={12} sm={12}>
+                    <FormControl>
+                        <FormLabel id="demo-radio-buttons-group-label">If so what is their name?</FormLabel>
+                        <TextField
+                            id="partnerName"
+                            name="partnerName"
+                            label="Partner / +1 name"
+                            fullWidth
+                            variant="standard"
+                        />
+                    </FormControl>
                 </Grid>
             </Grid>
         </>
