@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/router';
 
-import Address from './Address';
+import FormFields from './FormFields';
 
 const GuestForm = () => {
     const router = useRouter();
@@ -17,7 +17,7 @@ const GuestForm = () => {
                     R.S.V.P
                 </Typography>
                 <>
-                    <Address />
+                    <FormFields />
                     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                         <Button onClick={() => router.push('/')} variant="contained" sx={{ mt: 3, ml: 1 }}>
                             back
