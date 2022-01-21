@@ -18,7 +18,11 @@ export default function AddressForm() {
                     <TextField required id="email" name="email" label="Email Address" fullWidth variant="standard" />
                 </Grid>
                 <Grid item xs={12} sm={12}>
-                    <FormControl sx={{ verticalAlign: 'middle' }}>
+                    <FormControl
+                        sx={{
+                            verticalAlign: 'middle',
+                        }}
+                    >
                         <FormLabel required id="demo-radio-buttons-group-label">
                             Are you able to attend?
                         </FormLabel>
@@ -51,16 +55,13 @@ export default function AddressForm() {
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
-                    <FormControl fullWidth>
-                        <FormLabel id="demo-radio-buttons-group-label">If so what is their name?</FormLabel>
-                        <TextField
-                            id="partnerName"
-                            name="partnerName"
-                            label="Partner or plus one name"
-                            fullWidth
-                            variant="standard"
-                        />
-                    </FormControl>
+                    <TextField
+                        id="partnerName"
+                        name="partnerName"
+                        label="If so, what is their name?"
+                        fullWidth
+                        variant="standard"
+                    />
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl sx={{ verticalAlign: 'middle' }}>
