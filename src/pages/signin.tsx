@@ -18,10 +18,10 @@ const SignInPage: NextPage = () => {
     }, [session, router, status]);
 
     return (
-        <div>
+        <>
             <>{status === 'loading' && <div className={spin.spin} />}</>
             <>{session === null && <SignIn />}</>
-        </div>
+        </>
     );
 };
 
