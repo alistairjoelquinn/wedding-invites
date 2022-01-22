@@ -16,11 +16,7 @@ const AddressForm = () => (
             <TextField required id="email" name="email" label="Email Address" fullWidth variant="standard" />
         </Grid>
         <Grid item xs={12} sm={12}>
-            <FormControl
-                sx={{
-                    verticalAlign: 'middle',
-                }}
-            >
+            <FormControl sx={{ transform: 'translateY(15px)' }}>
                 <FormLabel required id="demo-radio-buttons-group-label">
                     Are you able to attend?
                 </FormLabel>
@@ -37,7 +33,7 @@ const AddressForm = () => (
             </FormControl>
         </Grid>
         <Grid item xs={12} sm={12}>
-            <FormControl sx={{ verticalAlign: 'middle' }}>
+            <FormControl sx={{ transform: 'translateY(15px)' }}>
                 <FormLabel required id="demo-radio-buttons-group-label">
                     Are you bringing a partner or plus one?
                 </FormLabel>
@@ -52,6 +48,7 @@ const AddressForm = () => (
                 </RadioGroup>
             </FormControl>
         </Grid>
+
         <Grid item xs={12} sm={12}>
             <TextField
                 id="partnerName"
@@ -62,7 +59,7 @@ const AddressForm = () => (
             />
         </Grid>
         <Grid item xs={12} sm={12}>
-            <FormControl sx={{ verticalAlign: 'middle' }}>
+            <FormControl sx={{ transform: 'translateY(5px)' }}>
                 <FormLabel required id="demo-radio-buttons-group-label">
                     Are you bringing children?
                 </FormLabel>
