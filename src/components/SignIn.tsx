@@ -40,7 +40,7 @@ export default function SignIn() {
 
     return (
         <Container component="div" maxWidth="xs">
-            <Paper variant="outlined" sx={{ p: '20px' }}>
+            <Paper variant="elevation" sx={{ p: '20px', borderRadius: '10px' }} elevation={1}>
                 <Box
                     sx={{
                         marginTop: 2,
@@ -51,7 +51,7 @@ export default function SignIn() {
                 >
                     {!error ? (
                         <Typography component="h1" variant="h5">
-                            Richard and Carolina invite you...
+                            Please log in to R.S.V.P
                         </Typography>
                     ) : (
                         <Typography component="h1" variant="h5">
