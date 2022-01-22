@@ -1,6 +1,6 @@
 .spin {
-    border: solid 8px rgb(89, 109, 207);
-    border-bottom-color: rgb(31, 50, 146);
+    border: solid 8px bisque;
+    border-bottom-color: rgb(235, 170, 91);
     border-radius: 50%;
     height: 100px;
     width: 100px;
