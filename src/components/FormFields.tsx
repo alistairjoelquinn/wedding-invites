@@ -8,7 +8,7 @@ import FormLabel from '@mui/material/FormLabel';
 import Slider from '@mui/material/Slider';
 
 const AddressForm = () => (
-    <Grid container spacing={3}>
+    <Grid container spacing={2}>
         <Grid item xs={12} sm={12}>
             <TextField required id="fullName" name="fullName" label="Full name" fullWidth variant="standard" />
         </Grid>
