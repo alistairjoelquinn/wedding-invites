@@ -19,10 +19,14 @@ const GuestForm = () => {
                 <>
                     <FormFields />
                     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Button onClick={() => router.push('/')} variant="contained" sx={{ mt: 3, ml: 1 }}>
+                        <Button
+                            onClick={() => router.push('/')}
+                            variant="contained"
+                            sx={{ mt: 3, ml: 1, color: 'white' }}
+                        >
                             Back
                         </Button>
-                        <Button variant="contained" sx={{ mt: 3, ml: 1 }}>
+                        <Button variant="contained" sx={{ mt: 3, ml: 1, color: 'white' }}>
                             Send
                         </Button>
                     </Box>

@@ -23,7 +23,11 @@ const Home: NextPage = () => {
             {session && (
                 <Container sx={{ ...flex, flexDirection: 'column' }}>
                     <Typography>HOME PAGE</Typography>
-                    <Button onClick={() => router.push('/form')} variant="contained" sx={{ mt: 3, ml: 1 }}>
+                    <Button
+                        onClick={() => router.push('/form')}
+                        variant="contained"
+                        sx={{ mt: 3, ml: 1, color: 'white' }}
+                    >
                         R.S.V.P
                     </Button>
                 </Container>

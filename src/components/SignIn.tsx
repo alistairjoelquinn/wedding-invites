@@ -81,7 +81,7 @@ export default function SignIn() {
                             autoComplete="current-password"
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, color: 'white' }}>
                             Sign In
                         </Button>
                     </Box>
