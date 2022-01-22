@@ -1,10 +1,3 @@
-import Header from '@/components/Header';
-
-const Page: React.FC = ({ children }) => (
-    <div>
-        <Header />
-        {children}
-    </div>
-);
+const Page: React.FC = ({ children }) => <>{children}</>;
 
 export default Page;
