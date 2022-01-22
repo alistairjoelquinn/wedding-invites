@@ -85,6 +85,7 @@ const AddressForm = () => (
                     min={0}
                     max={10}
                     valueLabelDisplay="auto"
+                    sx={{ width: '98%', ml: '1%' }}
                 />
             </FormControl>
         </Grid>
