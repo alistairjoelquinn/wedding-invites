@@ -6,17 +6,20 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Slider from '@mui/material/Slider';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { Dispatch } from './context';
 
 const AddressForm = () => {
-    const [sliderValue, setSliderValue] = useState<{ numberOfChildren: number | number[] }>({ numberOfChlidren: 0 });
-
-    useEffect(() => {
-        console.log('sliderValue: ', sliderValue);
-    }, [sliderValue]);
+    const dispatch = Dispatch();
+    const [sliderValue, setSliderValue] = useState<{ numberOfChildren: number | number[] }>({ numberOfChildren: 0 });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.name, e.target.value);
+        dispatch({
+            type: 'UPDATE_USER_VALUES',
+            payload: {
+                [e.target.name]: e.target.value,
+            },
+        });
     };
 
     const handleSliderChange = (_: Event, value: number | number[]) => {
@@ -26,7 +29,10 @@ const AddressForm = () => {
     };
 
     const handleSliderSubmit = () => {
-        console.log('sliderValue: ', sliderValue);
+        dispatch({
+            type: 'UPDATE_USER_VALUES',
+            payload: sliderValue,
+        });
     };
 
     return (

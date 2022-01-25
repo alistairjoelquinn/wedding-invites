@@ -14,5 +14,11 @@ export const reducer = (state = initialState, action: Action) => {
     if (action.type === 'RSVP_SUBMITTED') {
         return action.payload.rsvp;
     }
+    if (action.type === 'UPDATE_USER_VALUES') {
+        return {
+            ...state,
+            ...action.payload,
+        };
+    }
     return state;
 };
