@@ -4,10 +4,14 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import type { NextPage } from 'next';
 
 import spin from '@/styles/spin.module.css';
 import flex from '@/../lib/flex';
+import content from '@/../content/index.json';
 
 const Home: NextPage = () => {
     const router = useRouter();
@@ -47,20 +51,12 @@ const Home: NextPage = () => {
                         <Typography sx={{ m: 3, fontWeight: 'bold' }} variant="h6">
                             Saturday
                         </Typography>
-                        <List dense={dense}>
-                            {(
-                                <ListItem>
-                                    <ListItemAvatar>
-                                        <Avatar>
-                                            <FolderIcon />
-                                        </Avatar>
-                                    </ListItemAvatar>
-                                    <ListItemText
-                                        primary="Single-line item"
-                                        secondary={secondary ? 'Secondary text' : null}
-                                    />
-                                </ListItem>,
-                            )}
+                        <List>
+                            {content.saturday.map((item) => (
+                                <ListItem key={item}>
+                                    <ListItemText primary={item} />
+                                </ListItem>
+                            ))}
                         </List>
                         <Button onClick={() => router.push('/form')} variant="contained" sx={{ m: 3, color: 'white' }}>
                             R.S.V.P
