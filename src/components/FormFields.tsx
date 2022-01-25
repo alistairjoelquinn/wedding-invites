@@ -6,10 +6,23 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Slider from '@mui/material/Slider';
+import { useEffect, useState } from 'react';
 
 const AddressForm = () => {
+    const [sliderValue, setSliderValue] = useState(0);
+
+    useEffect(() => {
+        console.log('sliderValue: ', sliderValue);
+    }, [sliderValue]);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log(e.target.name, e.target.value);
+    };
+
+    const handleSliderChange = (_: never, s: number) => {
+        if (s !== sliderValue) {
+            setSliderValue(s);
+        }
     };
 
     return (
@@ -103,7 +116,7 @@ const AddressForm = () => {
                 <FormControl fullWidth>
                     <FormLabel id="demo-radio-buttons-group-label">If so how many?</FormLabel>
                     <Slider
-                        // onChange={handleChange}
+                        onChange={handleSliderChange}
                         aria-label="Always visible"
                         defaultValue={0}
                         step={1}
