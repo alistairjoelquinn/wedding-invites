@@ -27,12 +27,15 @@ const Home: NextPage = () => {
             {!session && <div className={spin.spin} />}
             {session && (
                 <Container
+                    maxWidth="md"
                     sx={{
                         ...flex,
                         flexDirection: 'column',
                         justifyContent: 'flex-start',
-                        height: '80vh',
-                        width: '70vw',
+                        mt: 3,
+                        mb: 3,
+                        // height: '80vh',
+                        // width: '60vw',
                     }}
                 >
                     <Paper
@@ -43,6 +46,7 @@ const Home: NextPage = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'flex-start',
+                            // alignItems: 'center',
                         }}
                     >
                         <Typography sx={{ m: 3 }} variant="h4">
@@ -53,6 +57,16 @@ const Home: NextPage = () => {
                         </Typography>
                         <List sx={{ ml: 3 }}>
                             {content.saturday.map((item) => (
+                                <ListItem key={item} sx={{ pb: 0 }}>
+                                    <ListItemText primary={item} />
+                                </ListItem>
+                            ))}
+                        </List>
+                        <Typography sx={{ ml: 3, fontWeight: 'bold' }} variant="subtitle1">
+                            Sunday
+                        </Typography>
+                        <List sx={{ ml: 3 }}>
+                            {content.sunday.map((item) => (
                                 <ListItem key={item} sx={{ pb: 0 }}>
                                     <ListItemText primary={item} />
                                 </ListItem>
