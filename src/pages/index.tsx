@@ -31,7 +31,6 @@ const Home: NextPage = () => {
                         width: '70vw',
                     }}
                 >
-                    <Typography variant="h3">Itinerary</Typography>
                     <Paper
                         elevation={1}
                         sx={{
@@ -39,9 +38,12 @@ const Home: NextPage = () => {
                             width: '100%',
                             display: 'flex',
                             flexDirection: 'column',
-                            justifyContent: 'center',
+                            justifyContent: 'flex-start',
                         }}
                     >
+                        <Typography sx={{ m: 3 }} variant="h4">
+                            Itinerary
+                        </Typography>
                         <Button onClick={() => router.push('/form')} variant="contained" sx={{ m: 3, color: 'white' }}>
                             R.S.V.P
                         </Button>
