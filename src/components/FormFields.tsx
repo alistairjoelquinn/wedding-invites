@@ -9,7 +9,7 @@ import Slider from '@mui/material/Slider';
 import { useEffect, useState } from 'react';
 
 const AddressForm = () => {
-    const [sliderValue, setSliderValue] = useState(0);
+    const [sliderValue, setSliderValue] = useState<{ numberOfChildren: number | number[] }>({ numberOfChlidren: 0 });
 
     useEffect(() => {
         console.log('sliderValue: ', sliderValue);
@@ -19,10 +19,14 @@ const AddressForm = () => {
         console.log(e.target.name, e.target.value);
     };
 
-    const handleSliderChange = (_: never, s: number) => {
-        if (s !== sliderValue) {
-            setSliderValue(s);
+    const handleSliderChange = (_: Event, value: number | number[]) => {
+        if (value !== sliderValue.numberOfChildren) {
+            setSliderValue({ numberOfChildren: value });
         }
+    };
+
+    const handleSliderSubmit = () => {
+        console.log('sliderValue: ', sliderValue);
     };
 
     return (
@@ -117,9 +121,11 @@ const AddressForm = () => {
                     <FormLabel id="demo-radio-buttons-group-label">If so how many?</FormLabel>
                     <Slider
                         onChange={handleSliderChange}
+                        onMouseUp={handleSliderSubmit}
                         aria-label="Always visible"
                         defaultValue={0}
                         step={1}
+                        id="numberOfChildren"
                         marks
                         min={0}
                         max={10}
