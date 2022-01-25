@@ -1,8 +1,8 @@
 import { createContext, useContext, useReducer } from 'react';
-import { Action, InitialState } from './models';
+import { Action, RSVP } from './models';
 import { initialState, reducer } from './reducer';
 
-const StateContext = createContext<InitialState>({} as InitialState);
+const StateContext = createContext<RSVP>({} as RSVP);
 const DispatchContext = createContext<React.Dispatch<Action>>(null!);
 
 export const State = () => useContext(StateContext);
