@@ -27,15 +27,13 @@ const Home: NextPage = () => {
             {!session && <div className={spin.spin} />}
             {session && (
                 <Container
-                    maxWidth="md"
+                    maxWidth="sm"
                     sx={{
                         ...flex,
                         flexDirection: 'column',
                         justifyContent: 'flex-start',
                         mt: 3,
                         mb: 3,
-                        // height: '80vh',
-                        // width: '60vw',
                     }}
                 >
                     <Paper
@@ -46,7 +44,8 @@ const Home: NextPage = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'flex-start',
-                            // alignItems: 'center',
+                            pl: 3,
+                            pr: 3,
                         }}
                     >
                         <Typography sx={{ m: 3 }} variant="h4">
