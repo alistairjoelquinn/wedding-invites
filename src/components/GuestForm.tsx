@@ -15,12 +15,21 @@ const GuestForm = () => {
     const router = useRouter();
     const [error, setError] = useState<string>('');
 
-    const formSubmitHandler = () => {
+    const formSubmitHandler = async () => {
         const validationError = validate(state);
         if (validationError) {
             setError(validationError);
         }
-        console.log('state: ', state);
+        const res = await fetch('/submit-guest', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(state),
+        });
+        const data = await res.json();
+        console.log('data: ', data);
     };
 
     return (
