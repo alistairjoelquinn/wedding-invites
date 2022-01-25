@@ -12,7 +12,7 @@ const GuestForm = () => {
 
     return (
         <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-            <Paper variant="elevation" elevation={1} sx={{ p: '20px', mt: '20px', maxHeight: '90vh' }}>
+            <Paper variant="elevation" elevation={1} sx={{ pt: '20px', pb: '20px', pl: 4, pr: 4, mt: '20px' }}>
                 <Typography component="h1" variant="h4" align="center">
                     R.S.V.P
                 </Typography>
