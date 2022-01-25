@@ -48,12 +48,12 @@ const Home: NextPage = () => {
                         <Typography sx={{ m: 3 }} variant="h4">
                             Itinerary
                         </Typography>
-                        <Typography sx={{ m: 3, fontWeight: 'bold' }} variant="h6">
+                        <Typography sx={{ ml: 3, fontWeight: 'bold' }} variant="subtitle1">
                             Saturday
                         </Typography>
-                        <List>
+                        <List sx={{ ml: 3 }}>
                             {content.saturday.map((item) => (
-                                <ListItem key={item}>
+                                <ListItem key={item} sx={{ pb: 0 }}>
                                     <ListItemText primary={item} />
                                 </ListItem>
                             ))}
