@@ -44,6 +44,24 @@ const Home: NextPage = () => {
                         <Typography sx={{ m: 3 }} variant="h4">
                             Itinerary
                         </Typography>
+                        <Typography sx={{ m: 3, fontWeight: 'bold' }} variant="h6">
+                            Saturday
+                        </Typography>
+                        <List dense={dense}>
+                            {(
+                                <ListItem>
+                                    <ListItemAvatar>
+                                        <Avatar>
+                                            <FolderIcon />
+                                        </Avatar>
+                                    </ListItemAvatar>
+                                    <ListItemText
+                                        primary="Single-line item"
+                                        secondary={secondary ? 'Secondary text' : null}
+                                    />
+                                </ListItem>,
+                            )}
+                        </List>
                         <Button onClick={() => router.push('/form')} variant="contained" sx={{ m: 3, color: 'white' }}>
                             R.S.V.P
                         </Button>
