@@ -8,6 +8,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (!session) return res.status(401);
 
+    validateIncomingValues();
+
     const { db } = await connectToDatabase();
 
     const { acknowledged } = await db.collection('rsvps').insertOne(req.body);
