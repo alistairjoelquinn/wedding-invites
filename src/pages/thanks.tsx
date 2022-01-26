@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import List from '@mui/material/List';
@@ -49,17 +48,18 @@ const Thanks: NextPage = () => {
                             justifyContent: 'flex-start',
                             pl: 3,
                             pr: 3,
+                            pb: 3,
                         }}
                     >
                         <Typography sx={{ m: 3 }} variant="h4">
                             Thanks for responding!
                         </Typography>
-                        <Typography sx={{ m: 3 }} variant="h4">
+                        <Typography sx={{ ml: 3, mr: 3, mb: 3, fontSize: '18px' }} variant="h5">
                             {attending === 'yes'
-                                ? `We're looking forward to seeing you at the wedding!`
+                                ? `We're looking forward to seeing you at the wedding.`
                                 : attending === 'no'
-                                ? `We're sorry you can't make it, hopefully we can celebrate with you soon`
-                                : `Hopefully you can make it, but if not we look forward to celebrating with you soon`}
+                                ? `We're sorry you can't make it, hopefully we can celebrate with you soon.`
+                                : `Hopefully you can make it, but if not we look forward to celebrating with you soon.`}
                         </Typography>
                         {attending !== 'no' && (
                             <>

@@ -20,7 +20,7 @@ const GuestForm = () => {
         if (validationError) {
             setError(validationError);
         }
-        await fetch('/api/submit-guest', {
+        const res = await fetch('/api/submit-guest', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -28,7 +28,10 @@ const GuestForm = () => {
             },
             body: JSON.stringify(state),
         });
-        router.push('/thanks');
+        const data = await res.json();
+        if (data) {
+            router.push('/thanks');
+        }
     };
 
     return (
