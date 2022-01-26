@@ -19,18 +19,19 @@ const GuestForm = () => {
         const validationError = validate(state);
         if (validationError) {
             setError(validationError);
-        }
-        const res = await fetch('/api/submit-guest', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(state),
-        });
-        const data = await res.json();
-        if (data) {
-            router.push('/thanks');
+        } else {
+            const res = await fetch('/api/submit-guest', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(state),
+            });
+            const data = await res.json();
+            if (data) {
+                router.push('/thanks');
+            }
         }
     };
 
