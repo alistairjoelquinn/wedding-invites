@@ -29,7 +29,10 @@ const GuestForm = () => {
                 body: JSON.stringify(state),
             });
             const data = await res.json();
-            if (data) {
+            console.log('data: ', data);
+            if (data.error) {
+                setError(data.error);
+            } else if (data) {
                 router.push('/thanks');
             }
         }
