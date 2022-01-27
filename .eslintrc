@@ -18,6 +18,8 @@
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
     "no-nested-ternary": "off",
+    "no-console": "off",
+    "no-multi-assign": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
     "import/no-anonymous-default-export": "off",
@@ -53,8 +55,6 @@
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
-        "no-use-before-define": [0],
-        "no-console": "off",
         "@typescript-eslint/no-use-before-define": [1],
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-explicit-any": "off",

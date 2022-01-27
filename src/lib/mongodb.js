@@ -1,5 +1,4 @@
-import { MongoClient } from 'mongodb';
-import { inspect } from 'util';
+const { MongoClient } = require('mongodb');
 
 const { MONGODB_URI, MONGODB_DB } = process.env;
 
@@ -17,7 +16,7 @@ if (!cached) {
     cached = global.mongo = { conn: null, promise: null };
 }
 
-export async function connectToDatabase() {
+module.exports = async function connectToDatabase() {
     // console.log('global.mongo: ', inspect(global.mongo, { showHidden: false, depth: null, colors: true }));
 
     if (cached.conn) {
@@ -37,4 +36,4 @@ export async function connectToDatabase() {
     }
     cached.conn = await cached.promise;
     return cached.conn;
-}
+};
