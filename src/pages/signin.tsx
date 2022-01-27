@@ -11,7 +11,6 @@ const SignInPage: NextPage = () => {
     const { data: session, status } = useSession();
 
     useLayoutEffect(() => {
-        console.log('session, status: ', session, status);
         if (session) {
             router.replace('/');
         }

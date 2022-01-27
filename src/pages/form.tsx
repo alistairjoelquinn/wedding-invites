@@ -14,8 +14,6 @@ const Form: NextPage = () => {
         },
     });
 
-    console.log('session in form page: ', session);
-
     return <div>{session ? <GuestForm /> : <div className={spin.spin} />}</div>;
 };
 
