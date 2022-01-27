@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import validate from '@/../lib/validate';
+import validate from '@/lib/validate';
 import FormFields from './FormFields';
 import { State } from './context';
 

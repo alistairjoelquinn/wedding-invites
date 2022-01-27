@@ -6,7 +6,7 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import { SessionProvider } from 'next-auth/react';
 
 import theme from '@/styles/theme';
-import createEmotionCache from '@/../lib/createEmotionCache';
+import createEmotionCache from '@/lib/createEmotionCache';
 import Page from '@/components/Page';
 import { StateProvider } from '@/components/context';
 

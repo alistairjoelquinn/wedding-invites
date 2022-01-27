@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import type { NextPage } from 'next';
 
 import spin from '@/styles/spin.module.css';
-import flex from '@/../lib/flex';
+import flex from '@/lib/flex';
 import content from '@/../content/index.json';
 import { State } from '@/components/context';
 
