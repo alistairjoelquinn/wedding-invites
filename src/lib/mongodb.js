@@ -17,8 +17,6 @@ if (!cached) {
 }
 
 module.exports = async function connectToDatabase() {
-    // console.log('global.mongo: ', inspect(global.mongo, { showHidden: false, depth: null, colors: true }));
-
     if (cached.conn) {
         return cached.conn;
     }
