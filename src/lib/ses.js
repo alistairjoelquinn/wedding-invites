@@ -40,8 +40,9 @@ function checkResponse(rsvp) {
 }
 
 
-exports.sendEmail = (rsvp) =>
-    ses
+exports.sendEmail = (rsvp) => {
+    console.log('rsvp in sendEmail: ', rsvp);
+    return ses
         .sendEmail({
             Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
             Destination: {
@@ -61,3 +62,4 @@ exports.sendEmail = (rsvp) =>
         .promise()
         .then(() => console.log('it worked!'))
         .catch((err) => console.log(err));
+}

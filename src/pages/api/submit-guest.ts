@@ -3,6 +3,7 @@ import { getSession } from 'next-auth/react';
 
 import { validateIncomingValues } from '@/lib/validateIncomingValues';
 import connectToDatabase from '@/lib/mongodb';
+import { sendEmail } from '@/lib/ses';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const session = await getSession({ req });
@@ -16,6 +17,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { db } = await connectToDatabase();
 
     const { acknowledged } = await db.collection('rsvps').insertOne(req.body);
+
+    await sendEmail(req.body);
 
     return res.json({ success: acknowledged ? 'true' : 'false' });
 };
