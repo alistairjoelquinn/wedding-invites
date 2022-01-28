@@ -8,6 +8,10 @@ export interface RSVP {
     numberOfChildren: number;
 }
 
+export interface Guest extends RSVP {
+    _id: string;
+}
+
 export interface Action {
     type: string;
     payload?: any;
