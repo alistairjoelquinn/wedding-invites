@@ -41,6 +41,8 @@ const Admin: NextPage = () => {
         },
     });
 
+    const checkAdminPassword = async () => {};
+
     const getAdminGuestList = async () => {
         const res = await fetch('/api/admin-guest-list');
         const data = await res.json();
