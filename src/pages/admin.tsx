@@ -50,11 +50,13 @@ const Admin: NextPage = () => {
 
     return (
         <Container component="main" sx={{ ...flex, minHeight: '90vh', flexDirection: 'column' }}>
-            <>{!session && <div className={spin.spin} />}</>
             <>
-                {adminAuthenticated || (
-                    <AdminSignIn error={error} checkAdminPassword={checkAdminPassword} setPassword={setPassword} />
-                )}
+                {adminAuthenticated ||
+                    (!session ? (
+                        <div className={spin.spin} />
+                    ) : (
+                        <AdminSignIn error={error} checkAdminPassword={checkAdminPassword} setPassword={setPassword} />
+                    ))}
             </>
             <>
                 {adminAuthenticated && (
