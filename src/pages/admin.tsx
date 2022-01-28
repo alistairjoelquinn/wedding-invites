@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, Container, TextField, Typography, Paper } from '@mui/material';
+import { Box, Card, CardContent, Container, Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react';
 import { Guest } from '@/components/context/models';
 import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
+import AdminSignIn from '@/components/AdminSignIn';
 
 const UserCard = () => (
     <Box sx={{ minWidth: 275 }}>
@@ -31,7 +32,7 @@ const UserCard = () => (
 );
 
 const Admin: NextPage = () => {
-    const [adminAuthenticated, setAdminAuthenticated] = useState(true);
+    const [adminAuthenticated, setAdminAuthenticated] = useState(false);
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [guests, setGuests] = useState<Guest[]>([]);
@@ -70,35 +71,9 @@ const Admin: NextPage = () => {
     return (
         <Container component="main" sx={{ ...flex, minHeight: '90vh', flexDirection: 'column' }}>
             {!session && <div className={spin.spin} />}
-            <Paper variant="elevation" sx={{ p: '20px', borderRadius: '10px', width: '50vw' }} elevation={1}>
-                <Box
-                    sx={{
-                        marginTop: 2,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
-                >
-                    <Typography component="h1" variant="h5">
-                        {error || `Please enter the admin password`}
-                    </Typography>
-                    <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        sx={{ m: 2 }}
-                    />
-                    <Button variant="contained" onClick={checkAdminPassword} sx={{ color: 'white' }}>
-                        Submit
-                    </Button>
-                </Box>
-            </Paper>
+            {adminAuthenticated || (
+                <AdminSignIn error={error} checkAdminPassword={checkAdminPassword} setPassword={setPassword} />
+            )}
         </Container>
     );
 };
