@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, Container, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, Container, TextField, Typography, Paper } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -48,11 +48,36 @@ const Admin: NextPage = () => {
     };
 
     return (
-        <Container component="main" sx={{ ...flex, minHeight: '90vh' }}>
+        <Container component="main" sx={{ ...flex, minHeight: '90vh', flexDirection: 'column' }}>
             {!session && <div className={spin.spin} />}
-            <Button variant="contained" onClick={getAdminGuestList} sx={{ color: 'white' }}>
-                Get Guest List
-            </Button>
+            <Paper variant="elevation" sx={{ p: '20px', borderRadius: '10px' }} elevation={1}>
+                <Box
+                    sx={{
+                        marginTop: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Typography component="h1" variant="h5">
+                        Please enter the admin password
+                    </Typography>
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Button variant="contained" onClick={getAdminGuestList} sx={{ color: 'white' }}>
+                        Submit
+                    </Button>
+                </Box>
+            </Paper>
         </Container>
     );
 };
