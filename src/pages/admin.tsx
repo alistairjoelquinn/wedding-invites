@@ -9,23 +9,26 @@ import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
 import AdminSignIn from '@/components/AdminSignIn';
 
-const UserCard = () => (
+const UserCard = ({ guest }: { guest: Guest }) => (
     <Box sx={{ minWidth: 275 }}>
         <Card variant="outlined">
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Word of the Day
+                    {guest.fullName}
                 </Typography>
                 <Typography variant="h5" component="div">
-                    Big text
+                    Attending: {guest.attending ? 'yes' : 'no'}
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    adjective
+                    Bringing a partner: {guest.partner ? 'yes' : 'no'}
                 </Typography>
-                <Typography variant="body2">
-                    well meaning and kindly.
-                    <br />a benevolent smile
+                {guest.partnerName && <Typography variant="body2">Partner name: {guest.partnerName}</Typography>}
+                <Typography variant="h5" component="div">
+                    Bringing children: {guest.children ? 'yes' : 'no'}
                 </Typography>
+                {guest.children && (
+                    <Typography variant="body2">Number of children: {guest.numberOfChildren}</Typography>
+                )}
             </CardContent>
         </Card>
     </Box>
@@ -74,6 +77,7 @@ const Admin: NextPage = () => {
             {adminAuthenticated || (
                 <AdminSignIn error={error} checkAdminPassword={checkAdminPassword} setPassword={setPassword} />
             )}
+            {adminAuthenticated && guests.map((guest) => <UserCard key={guest._id} guest={guest} />)}
         </Container>
     );
 };
