@@ -1,32 +1,29 @@
 const aws = require('aws-sdk');
-const fs = require('fs');
 
-const s3 = new aws.S3({
+const ses = new aws.SES({
     accessKeyId: process.env.NEXT_PUBLIC_AWS_KEY,
     secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET,
+    region: 'eu-central-1',
 });
 
-exports.upload = (req, res, next) => {
-    if (!req.file) {
-        res.sendStatus(500);
-        return;
-    }
-    const { filename, mimetype, size, path } = req.file;
-    s3.putObject({
-        Bucket: 'alsimageuniverse',
-        ACL: 'public-read',
-        Key: filename,
-        Body: fs.createReadStream(path),
-        ContentType: mimetype,
-        ContentLength: size,
-    })
-        .promise()
-        .then(() => {
-            console.log('upload to bucket was successful');
-            next();
+exports.sendEmail = (recipient, message, subject) =>
+    ses
+        .sendEmail({
+            Source: 'Social Animal <alistair@spiced-academy.com>',
+            Destination: {
+                ToAddresses: [recipient],
+            },
+            Message: {
+                Body: {
+                    Text: {
+                        Data: message,
+                    },
+                },
+                Subject: {
+                    Data: subject,
+                },
+            },
         })
-        .catch((err) => {
-            console.log('upload to AWS bucket was unsuccessful', err);
-            res.sendStatus(500);
-        });
-};
+        .promise()
+        .then(() => console.log('it worked!'))
+        .catch((err) => console.log(err));
