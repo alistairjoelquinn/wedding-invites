@@ -33,6 +33,7 @@ const UserCard = () => (
 const Admin: NextPage = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(true);
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const [guests, setGuests] = useState<Guest[]>([]);
     const router = useRouter();
     const { data: session } = useSession({
@@ -41,6 +42,12 @@ const Admin: NextPage = () => {
             router.replace('/signin');
         },
     });
+
+    const getAdminGuestList = async () => {
+        const res = await fetch('/api/admin-guest-list');
+        const data = await res.json();
+        setGuests(data);
+    };
 
     const checkAdminPassword = async () => {
         const res = await fetch('/api/check-password', {
@@ -52,19 +59,18 @@ const Admin: NextPage = () => {
             body: JSON.stringify({ password }),
         });
         const data = await res.json();
-        console.log('data: ', data);
-    };
-
-    const getAdminGuestList = async () => {
-        const res = await fetch('/api/admin-guest-list');
-        const data = await res.json();
-        setGuests(data);
+        if (data.admin) {
+            setAdminAuthenticated(true);
+            await getAdminGuestList();
+        } else {
+            setError('Incorrect password');
+        }
     };
 
     return (
         <Container component="main" sx={{ ...flex, minHeight: '90vh', flexDirection: 'column' }}>
             {!session && <div className={spin.spin} />}
-            <Paper variant="elevation" sx={{ p: '20px', borderRadius: '10px' }} elevation={1}>
+            <Paper variant="elevation" sx={{ p: '20px', borderRadius: '10px', width: '50vw' }} elevation={1}>
                 <Box
                     sx={{
                         marginTop: 2,
@@ -74,7 +80,7 @@ const Admin: NextPage = () => {
                     }}
                 >
                     <Typography component="h1" variant="h5">
-                        Please enter the admin password
+                        {error || `Please enter the admin password`}
                     </Typography>
                     <TextField
                         margin="normal"
@@ -86,6 +92,7 @@ const Admin: NextPage = () => {
                         id="password"
                         autoComplete="current-password"
                         onChange={(e) => setPassword(e.target.value)}
+                        sx={{ m: 2 }}
                     />
                     <Button variant="contained" onClick={checkAdminPassword} sx={{ color: 'white' }}>
                         Submit
