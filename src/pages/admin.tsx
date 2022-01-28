@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Container, Typography } from '@mui/material';
+import Container from '@mui/material/Container';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -8,31 +8,7 @@ import { Guest } from '@/components/context/models';
 import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
 import AdminSignIn from '@/components/AdminSignIn';
-
-const UserCard = ({ guest }: { guest: Guest }) => (
-    <Box sx={{ minWidth: 275 }}>
-        <Card variant="outlined">
-            <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    {guest.fullName}
-                </Typography>
-                <Typography variant="h5" component="div">
-                    Attending: {guest.attending ? 'yes' : 'no'}
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    Bringing a partner: {guest.partner ? 'yes' : 'no'}
-                </Typography>
-                {guest.partnerName && <Typography variant="body2">Partner name: {guest.partnerName}</Typography>}
-                <Typography variant="h5" component="div">
-                    Bringing children: {guest.children ? 'yes' : 'no'}
-                </Typography>
-                {guest.children && (
-                    <Typography variant="body2">Number of children: {guest.numberOfChildren}</Typography>
-                )}
-            </CardContent>
-        </Card>
-    </Box>
-);
+import UserCard from '@/components/UserCard';
 
 const Admin: NextPage = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
