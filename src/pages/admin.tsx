@@ -1,3 +1,4 @@
+import { Guest } from '@/components/context/models';
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
@@ -25,12 +26,12 @@ const UserCard = () => (
 );
 
 const Admin: NextPage = () => {
-    const [guests, setGuests] = useState<RSVP[]>([]);
+    const [guests, setGuests] = useState<Guest[]>([]);
 
     const getAdminGuestList = async () => {
         const res = await fetch('/api/admin-guest-list');
         const data = await res.json();
-        console.log('data: ', data);
+        setGuests(data);
     };
 
     return (
