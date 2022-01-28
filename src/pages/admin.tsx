@@ -32,6 +32,7 @@ const UserCard = () => (
 
 const Admin: NextPage = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(true);
+    const [password, setPassword] = useState('');
     const [guests, setGuests] = useState<Guest[]>([]);
     const router = useRouter();
     const { data: session } = useSession({
@@ -41,7 +42,18 @@ const Admin: NextPage = () => {
         },
     });
 
-    const checkAdminPassword = async () => {};
+    const checkAdminPassword = async () => {
+        const res = await fetch('/api/check-password', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ password }),
+        });
+        const data = await res.json();
+        console.log('data: ', data);
+    };
 
     const getAdminGuestList = async () => {
         const res = await fetch('/api/admin-guest-list');
@@ -75,7 +87,7 @@ const Admin: NextPage = () => {
                         autoComplete="current-password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Button variant="contained" onClick={getAdminGuestList} sx={{ color: 'white' }}>
+                    <Button variant="contained" onClick={checkAdminPassword} sx={{ color: 'white' }}>
                         Submit
                     </Button>
                 </Box>
