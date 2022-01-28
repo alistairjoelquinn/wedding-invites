@@ -7,8 +7,8 @@ interface Props {
 }
 
 const UserCard = ({ guest }: Props) => (
-    <Box sx={{ minWidth: 275 }}>
-        <Card variant="outlined">
+    <Box>
+        <Card variant="outlined" sx={{ p: 2, width: '60vw', mb: 4 }}>
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                     {guest.fullName}

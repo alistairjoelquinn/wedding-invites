@@ -9,6 +9,7 @@ import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
 import AdminSignIn from '@/components/AdminSignIn';
 import UserCard from '@/components/UserCard';
+import { Box } from '@mui/material';
 
 const Admin: NextPage = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
@@ -55,7 +56,15 @@ const Admin: NextPage = () => {
                     <AdminSignIn error={error} checkAdminPassword={checkAdminPassword} setPassword={setPassword} />
                 )}
             </>
-            <>{adminAuthenticated && guests.map((guest) => <UserCard key={guest._id} guest={guest} />)}</>
+            <>
+                {adminAuthenticated && (
+                    <Box sx={{ p: 4 }}>
+                        {guests.map((guest) => (
+                            <UserCard key={guest._id} guest={guest} />
+                        ))}
+                    </Box>
+                )}
+            </>
         </Container>
     );
 };
