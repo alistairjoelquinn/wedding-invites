@@ -1,7 +1,12 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
+
 import { Guest } from './context/models';
 
-const UserCard = ({ guest }: { guest: Guest }) => (
+interface Props {
+    guest: Guest;
+}
+
+const UserCard = ({ guest }: Props) => (
     <Box sx={{ minWidth: 275 }}>
         <Card variant="outlined">
             <CardContent>
