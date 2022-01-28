@@ -1,7 +1,12 @@
-import { Guest } from '@/components/context/models';
-import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, Container, Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
+
+import { Guest } from '@/components/context/models';
+import spin from '@/styles/spin.module.css';
+import flex from '@/lib/flex';
 
 const UserCard = () => (
     <Box sx={{ minWidth: 275 }}>
@@ -26,7 +31,15 @@ const UserCard = () => (
 );
 
 const Admin: NextPage = () => {
+    const [adminAuthenticated, setAdminAuthenticated] = useState(true);
     const [guests, setGuests] = useState<Guest[]>([]);
+    const router = useRouter();
+    const { data: session } = useSession({
+        required: true,
+        onUnauthenticated() {
+            router.replace('/signin');
+        },
+    });
 
     const getAdminGuestList = async () => {
         const res = await fetch('/api/admin-guest-list');
@@ -35,12 +48,12 @@ const Admin: NextPage = () => {
     };
 
     return (
-        <div>
-            <p>Admin page</p>
-            <button type="button" onClick={getAdminGuestList}>
+        <Container component="main" sx={{ ...flex, minHeight: '90vh' }}>
+            {!session && <div className={spin.spin} />}
+            <Button variant="contained" onClick={getAdminGuestList} sx={{ color: 'white' }}>
                 Get Guest List
-            </button>
-        </div>
+            </Button>
+        </Container>
     );
 };
 

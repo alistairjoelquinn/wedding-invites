@@ -12,7 +12,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const data = await db.collection('rsvps').find().toArray();
 
-    console.log('data: ', data);
-
     return res.json(data);
 };
