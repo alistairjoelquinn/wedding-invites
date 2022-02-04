@@ -1,16 +1,10 @@
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import { Container, Paper, Typography } from '@mui/material';
 import type { NextPage } from 'next';
 
 import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
-import content from '@/../content/index.json';
 import { useAppState } from '@/components/context';
 
 const Thanks: NextPage = () => {

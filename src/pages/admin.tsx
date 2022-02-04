@@ -9,7 +9,7 @@ import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
 import AdminSignIn from '@/components/AdminSignIn';
 import UserCard from '@/components/UserCard';
-import { Box } from '@mui/material';
+import { Box, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup } from '@mui/material';
 
 const Admin: NextPage = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
@@ -61,6 +61,27 @@ const Admin: NextPage = () => {
             <>
                 {adminAuthenticated && (
                     <Box sx={{ p: 4 }}>
+                        <Box>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12} sm={12}>
+                                    <FormControl sx={{ transform: 'translateY(15px)' }}>
+                                        <FormLabel required id="demo-radio-buttons-group-label">
+                                            Are you bringing a partner or plus one?
+                                        </FormLabel>
+                                        <RadioGroup
+                                            onChange={handleChange}
+                                            aria-labelledby="rsvp-radio-buttons-group-label"
+                                            defaultValue={false}
+                                            name="partner"
+                                            sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
+                                        >
+                                            <FormControlLabel value control={<Radio />} label="Yes" />
+                                            <FormControlLabel value={false} control={<Radio />} label="No" />
+                                        </RadioGroup>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
+                        </Box>
                         {guests.map((guest) => (
                             <UserCard key={guest._id} guest={guest} />
                         ))}

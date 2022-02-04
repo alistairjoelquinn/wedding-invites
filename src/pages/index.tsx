@@ -1,13 +1,6 @@
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import { Container, Button, Typography, Paper, Box, List, ListItem, ListItemText } from '@mui/material';
 import type { NextPage } from 'next';
 
 import spin from '@/styles/spin.module.css';
@@ -27,15 +20,7 @@ const Home: NextPage = () => {
         <Container component="main" sx={{ ...flex, minHeight: '90vh' }}>
             {!session && <div className={spin.spin} />}
             {session && (
-                <Container
-                // sx={{
-                //     position: 'absolute',
-                //     top: 0,
-                //     width: '100vw',
-                //     minHeight: '100%',
-                //     backgroundColor: 'rgb(255, 255, 255)',
-                // }}
-                >
+                <Container>
                     <Box
                         sx={{
                             height: '60%',
