@@ -22,6 +22,7 @@ const Admin: NextPage = () => {
     const [error, setError] = useState('');
     const [guests, setGuests] = useState<Guest[]>([]);
     const [values, setValues] = useState<ToggleValues>({});
+    console.log('values: ', values);
     const router = useRouter();
     const { data: session } = useSession({
         required: true,
@@ -114,7 +115,10 @@ const Admin: NextPage = () => {
                             </Grid> */}
                         </Box>
                         {guests
-                            .filter((guest) => guest.attending === toggleValues.attending)
+                            .filter((guest) => {
+                                console.log('guest, values: ', guest, values);
+                                return guest.attending === values.attending;
+                            })
                             .map((guest) => (
                                 <UserCard key={guest._id} guest={guest} />
                             ))}

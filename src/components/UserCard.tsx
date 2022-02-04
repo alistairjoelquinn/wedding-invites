@@ -14,10 +14,10 @@ const UserCard = ({ guest }: Props) => (
                     Name: {guest.fullName}
                 </Typography>
                 <Typography sx={{ mt: 1.5 }} color="text.secondary">
-                    Attending: {guest.attending ? 'yes' : 'no'}
+                    Attending: {guest.attending[0].toUpperCase() + guest.attending.substring(1)}
                 </Typography>
                 <Typography sx={{ mt: 1.5 }} color="text.secondary">
-                    Bringing a partner: {guest.partner ? 'yes' : 'no'}
+                    Bringing a partner: {guest.partner ? 'Yes' : 'No'}
                 </Typography>
                 {guest.partnerName && (
                     <Typography sx={{ mt: 1.5 }} color="text.secondary">
@@ -25,7 +25,7 @@ const UserCard = ({ guest }: Props) => (
                     </Typography>
                 )}
                 <Typography sx={{ mt: 1.5 }} color="text.secondary">
-                    Bringing children: {guest.children ? 'yes' : 'no'}
+                    Bringing children: {guest.children ? 'Yes' : 'No'}
                 </Typography>
                 {guest.children && (
                     <Typography sx={{ mt: 1.5 }} color="text.secondary">
