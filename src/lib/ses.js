@@ -13,7 +13,7 @@ function checkResponse(rsvp) {
         response = `
             You received another response to wedding! ${rsvp.fullName} is going to attend!
 
-            ${rsvp.partner ? `They are bringing a plus one called ${rsvp.partnerName}.` : `They are coming alone.`}
+            ${rsvp.partner === "true" ? `They are bringing a plus one called ${rsvp.partnerName}.` : `They are coming alone.`}
 
             ${rsvp.children
                 ? `They are bringing ${rsvp.numberOfChildren} children.`
@@ -44,7 +44,7 @@ exports.sendEmail = (rsvp) => ses
     .sendEmail({
         Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
         Destination: {
-            ToAddresses: [process.env.USER_EMAIL],
+            ToAddresses: [process.env.ADMIN_EMAIL],
         },
         Message: {
             Body: {

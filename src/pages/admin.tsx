@@ -117,11 +117,14 @@ const Admin: NextPage = () => {
                             ? guests.map((guest) => <UserCard key={guest._id} guest={guest} />)
                             : guests
                                   .filter((guest) => (values.attending ? guest.attending === values.attending : true))
+                                  //   .filter((guest) => {
+                                  //       console.log('guest, values: ', guest, values);
+                                  //       return values.partner ? `${guest.attending}` === values.partner : true;
+                                  //   })
                                   .filter((guest) => {
-                                      console.log('guest, values: ', guest, values);
-                                      return values.partner ? `${guest.attending}` === values.partner : true;
+                                      console.log('guest.partner, values.partner: ', guest.partner, values.partner);
+                                      return values.partner ? guest.partner.toString() === values.partner : true;
                                   })
-                                  .filter((guest) => (values.partner ? guest.partner === 'true' : true))
                                   .map((guest) => <UserCard key={guest._id} guest={guest} />)}
                     </Box>
                 )}
