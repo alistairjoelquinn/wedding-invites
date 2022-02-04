@@ -9,7 +9,11 @@ interface Props {
 
 export default function AdminSignIn({ error, checkAdminPassword, setPassword }: Props) {
     return (
-        <Paper variant="elevation" sx={{ p: '20px', borderRadius: '10px', width: '50vw' }} elevation={1}>
+        <Paper
+            variant="elevation"
+            sx={{ p: '20px', borderRadius: '10px', width: '50vw', backgroundColor: '#f8f8ff' }}
+            elevation={1}
+        >
             <Box
                 sx={{
                     marginTop: 2,
