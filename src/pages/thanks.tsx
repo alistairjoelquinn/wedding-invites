@@ -49,6 +49,7 @@ const Thanks: NextPage = () => {
                             pl: 3,
                             pr: 3,
                             pb: 3,
+                            backgroundColor: '#f8f8ff',
                         }}
                     >
                         <Typography sx={{ m: 3 }} variant="h4">
@@ -61,30 +62,6 @@ const Thanks: NextPage = () => {
                                 ? `We're sorry you can't make it, hopefully we can celebrate with you soon.`
                                 : `Hopefully you can make it, but if not we look forward to celebrating with you soon.`}
                         </Typography>
-                        {attending !== 'no' && (
-                            <>
-                                <Typography sx={{ ml: 3, fontWeight: 'bold' }} variant="subtitle1">
-                                    Saturday
-                                </Typography>
-                                <List sx={{ ml: 3 }}>
-                                    {content.saturday.map((item) => (
-                                        <ListItem key={item} sx={{ pb: 0 }}>
-                                            <ListItemText primary={item} />
-                                        </ListItem>
-                                    ))}
-                                </List>
-                                <Typography sx={{ ml: 3, fontWeight: 'bold' }} variant="subtitle1">
-                                    Sunday
-                                </Typography>
-                                <List sx={{ ml: 3 }}>
-                                    {content.sunday.map((item) => (
-                                        <ListItem key={item} sx={{ pb: 0 }}>
-                                            <ListItemText primary={item} />
-                                        </ListItem>
-                                    ))}
-                                </List>
-                            </>
-                        )}
                     </Paper>
                 </Container>
             )}
