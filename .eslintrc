@@ -23,6 +23,7 @@
     "no-underscore-dangle": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
+    "@next/next/no-img-element": "off",
     "import/no-anonymous-default-export": "off",
     "react/no-unused-prop-types": "off",
     "react/react-in-jsx-scope": "off",

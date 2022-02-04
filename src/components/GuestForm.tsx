@@ -40,7 +40,11 @@ const GuestForm = () => {
     return (
         <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
             <Paper variant="elevation" elevation={1} sx={{ pt: '20px', pb: '20px', pl: 4, pr: 4, mt: '20px' }}>
-                <Typography component="h1" variant={error ? 'h5' : 'h3'} align="center">
+                <Typography
+                    sx={{ mt: 1, fontFamily: 'Seasons', letterSpacing: '1px' }}
+                    variant={error ? 'h5' : 'h3'}
+                    align="center"
+                >
                     {error || 'R.S.V.P'}
                 </Typography>
                 <>

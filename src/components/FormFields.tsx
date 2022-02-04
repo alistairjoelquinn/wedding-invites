@@ -72,8 +72,8 @@ const AddressForm = () => {
                         sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
                     >
                         <FormControlLabel value="yes" control={<Radio />} label="Yes, definitely" />
-                        <FormControlLabel value="no" control={<Radio />} label="No, I can't" />
-                        <FormControlLabel value="maybe" control={<Radio />} label="It's a maybe for now" />
+                        <FormControlLabel value="no" control={<Radio />} label="No, I can't make it" />
+                        <FormControlLabel value="maybe" control={<Radio />} label="It's a maybe at the moment" />
                     </RadioGroup>
                 </FormControl>
             </Grid>

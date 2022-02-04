@@ -7,6 +7,8 @@ import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { getCsrfToken } from 'next-auth/react';
 
+import Image from 'next/image';
+
 export default function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -39,54 +41,68 @@ export default function SignIn() {
     };
 
     return (
-        <Container component="div" maxWidth="xs">
-            <Paper variant="elevation" sx={{ p: '20px', borderRadius: '10px' }} elevation={1}>
-                <Box
-                    sx={{
-                        marginTop: 2,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
-                >
-                    {!error ? (
-                        <Typography component="h1" variant="h5">
-                            Please log in to R.S.V.P
-                        </Typography>
-                    ) : (
-                        <Typography component="h1" variant="h5">
-                            {error}
-                        </Typography>
-                    )}
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="username"
-                            label="Username"
-                            name="username"
-                            autoComplete="username"
-                            autoFocus
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, color: 'white' }}>
-                            Sign In
-                        </Button>
+        <>
+            <img
+                src="https://res.cloudinary.com/dtirfwiy8/image/upload/q_10/v1643969151/bridge_az4kyg.webp"
+                alt="Berlin bridge over water"
+                style={{
+                    position: 'absolute',
+                    left: 0,
+                    top: 0,
+                    zIndex: 0,
+                    width: '100%',
+                    transform: 'translateY(-20%)',
+                }}
+            />
+            <Container component="div" maxWidth="xs" sx={{ position: 'relative', zIndex: 1, overflow: 'hidden' }}>
+                <Paper variant="elevation" sx={{ p: '20px', borderRadius: '10px' }} elevation={1}>
+                    <Box
+                        sx={{
+                            marginTop: 2,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
+                        {!error ? (
+                            <Typography component="h1" variant="h5">
+                                Please log in to R.S.V.P
+                            </Typography>
+                        ) : (
+                            <Typography component="h1" variant="h5">
+                                {error}
+                            </Typography>
+                        )}
+                        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                            <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="username"
+                                label="Username"
+                                name="username"
+                                autoComplete="username"
+                                autoFocus
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                            <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, color: 'white' }}>
+                                Sign In
+                            </Button>
+                        </Box>
                     </Box>
-                </Box>
-            </Paper>
-        </Container>
+                </Paper>
+            </Container>
+        </>
     );
 }
