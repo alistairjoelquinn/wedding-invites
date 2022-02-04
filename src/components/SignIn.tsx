@@ -57,7 +57,7 @@ export default function SignIn() {
                         }}
                     >
                         {!error ? (
-                            <Typography component="h1" variant="h5">
+                            <Typography component="h1" variant="h5" sx={{ textAlign: 'center' }}>
                                 Please log in to R.S.V.P
                             </Typography>
                         ) : (
