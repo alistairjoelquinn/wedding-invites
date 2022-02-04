@@ -33,7 +33,7 @@ const Thanks: NextPage = () => {
                     }}
                 >
                     <Paper
-                        elevation={1}
+                        elevation={3}
                         sx={{
                             flexGrow: 1,
                             width: '100%',
