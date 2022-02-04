@@ -1,4 +1,14 @@
-import { Box, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Container } from '@mui/material';
+import {
+    Box,
+    FormControl,
+    FormControlLabel,
+    FormLabel,
+    Grid,
+    Radio,
+    RadioGroup,
+    Container,
+    Paper,
+} from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -65,7 +75,10 @@ const Admin: NextPage = () => {
     };
 
     return (
-        <Container component="main" sx={{ ...flex, minHeight: '90vh', flexDirection: 'column' }}>
+        <Container
+            component="main"
+            sx={{ ...flex, minHeight: '100vh', flexDirection: 'column', justifyContent: 'flex-start' }}
+        >
             <>
                 {adminAuthenticated ||
                     (!session ? (
@@ -79,7 +92,7 @@ const Admin: NextPage = () => {
                     <>
                         {guests.length ? (
                             <Box sx={{ p: 4 }}>
-                                <Box>
+                                <Paper variant="outlined" sx={{ p: 2, mb: 4, width: '60vw' }}>
                                     <Grid container spacing={2}>
                                         <Grid item xs={12} sm={4}>
                                             <FormControl>
@@ -97,7 +110,7 @@ const Admin: NextPage = () => {
                                                 </RadioGroup>
                                             </FormControl>
                                         </Grid>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={12} sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
                                             <FormControl>
                                                 <FormLabel id="partner">Bringing a partner:</FormLabel>
                                                 <RadioGroup
@@ -111,7 +124,7 @@ const Admin: NextPage = () => {
                                                 </RadioGroup>
                                             </FormControl>
                                         </Grid>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={12} sm={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                                             <FormControl>
                                                 <FormLabel id="partner">Bringing children:</FormLabel>
                                                 <RadioGroup
@@ -126,7 +139,7 @@ const Admin: NextPage = () => {
                                             </FormControl>
                                         </Grid>
                                     </Grid>
-                                </Box>
+                                </Paper>
                                 {!Object.keys(values).length
                                     ? guests.map((guest) => <UserCard key={guest._id} guest={guest} />)
                                     : guests
