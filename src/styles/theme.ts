@@ -48,7 +48,7 @@ const theme = createTheme({
             textTransform: 'none',
         },
         h1: {
-            fontFamily: 'Seasons',
+            fontFamily: 'RobotoBold',
         },
     },
 });

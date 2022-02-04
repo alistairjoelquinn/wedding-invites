@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 const Page: React.FC = ({ children }) => {
     const router = useRouter();
-    console.log('router: ', router);
 
     return (
         <Container

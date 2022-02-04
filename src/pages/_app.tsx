@@ -23,7 +23,7 @@ const App = (props: MyAppProps) => {
         <CacheProvider value={emotionCache}>
             <Head>
                 <meta name="viewport" content="initial-scale=1, width=device-width" />
-                <title>Wedding Invitations</title>
+                <title>Caro & Richie</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <ThemeProvider theme={theme}>

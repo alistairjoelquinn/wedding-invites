@@ -9,9 +9,11 @@ import { useAppState } from './context';
 const GuestForm = () => {
     const state = useAppState();
     const router = useRouter();
-    const [error, setError] = useState<string>('');
+    const [error, setError] = useState('');
+    const [sending, setSending] = useState(false);
 
     const formSubmitHandler = async () => {
+        setSending(true);
         const validationError = validate(state);
         if (validationError) {
             setError(validationError);
@@ -25,6 +27,7 @@ const GuestForm = () => {
                 body: JSON.stringify(state),
             });
             const data = await res.json();
+            setSending(false);
             if (data.error) {
                 setError(data.error);
             } else if (data) {
@@ -41,7 +44,7 @@ const GuestForm = () => {
                 sx={{ pt: '20px', pb: '20px', pl: 4, pr: 4, mt: '20px', backgroundColor: '#f8f8ff' }}
             >
                 <Typography
-                    sx={{ mt: 1, fontFamily: 'Seasons', letterSpacing: '1px' }}
+                    sx={{ mt: 1, fontFamily: 'RobotoBold', letterSpacing: '1px' }}
                     variant={error ? 'h5' : 'h3'}
                     align="center"
                 >

@@ -66,13 +66,20 @@ const Home: NextPage = () => {
                             }}
                         >
                             <Typography
-                                sx={{ mt: 3, mb: 2, fontFamily: 'Seasons', letterSpacing: '1px', textAlign: 'center' }}
+                                sx={{
+                                    mt: 3,
+                                    mb: 2,
+                                    fontWeight: 'bold',
+                                    fontFamily: 'RobotoBold',
+                                    letterSpacing: '1px',
+                                    textAlign: 'center',
+                                }}
                                 variant="h3"
                             >
                                 Event Details
                             </Typography>
                             <Typography
-                                sx={{ fontWeight: 'bold', fontFamily: 'Seasons', letterSpacing: '0.5px' }}
+                                sx={{ fontWeight: 'bold', fontFamily: 'RobotoBold', letterSpacing: '0.5px' }}
                                 variant="h5"
                             >
                                 Venue
@@ -83,7 +90,7 @@ const Home: NextPage = () => {
                                 </ListItem>
                             </List>
                             <Typography
-                                sx={{ mt: 1, fontWeight: 'bold', fontFamily: 'Seasons', letterSpacing: '0.5px' }}
+                                sx={{ mt: 1, fontWeight: 'bold', fontFamily: 'RobotoBold', letterSpacing: '0.5px' }}
                                 variant="h5"
                             >
                                 Saturday
@@ -96,7 +103,7 @@ const Home: NextPage = () => {
                                 ))}
                             </List>
                             <Typography
-                                sx={{ mt: 1, fontWeight: 'bold', fontFamily: 'Seasons', letterSpacing: '0.5px' }}
+                                sx={{ mt: 1, fontWeight: 'bold', fontFamily: 'RobotoBold', letterSpacing: '0.5px' }}
                                 variant="h5"
                             >
                                 Sunday
@@ -108,7 +115,10 @@ const Home: NextPage = () => {
                                     </ListItem>
                                 ))}
                             </List>
-                            <Typography sx={{ mt: 2, mb: 1, fontFamily: 'Seasons', letterSpacing: '1px' }} variant="h3">
+                            <Typography
+                                sx={{ mt: 2, mb: 1, fontFamily: 'RobotoBold', letterSpacing: '1px' }}
+                                variant="h3"
+                            >
                                 Hotels
                             </Typography>
                             <List>
@@ -118,7 +128,10 @@ const Home: NextPage = () => {
                                     </ListItem>
                                 ))}
                             </List>
-                            <Typography sx={{ mt: 2, mb: 1, fontFamily: 'Seasons', letterSpacing: '1px' }} variant="h3">
+                            <Typography
+                                sx={{ mt: 2, mb: 1, fontFamily: 'RobotoBold', letterSpacing: '1px' }}
+                                variant="h3"
+                            >
                                 Gifts
                             </Typography>
                             <List>
