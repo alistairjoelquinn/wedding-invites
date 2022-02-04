@@ -114,14 +114,14 @@ const Admin: NextPage = () => {
                                 </Grid>
                             </Grid> */}
                         </Box>
-                        {guests
-                            .filter((guest) => {
-                                console.log('guest, values: ', guest, values);
-                                return guest.attending === values.attending;
-                            })
-                            .map((guest) => (
-                                <UserCard key={guest._id} guest={guest} />
-                            ))}
+                        {!Object.keys(values).length
+                            ? guests.map((guest) => <UserCard key={guest._id} guest={guest} />)
+                            : guests
+                                  .filter((guest) => {
+                                      console.log('guest, values: ', guest, values);
+                                      return guest.attending === values.attending;
+                                  })
+                                  .map((guest) => <UserCard key={guest._id} guest={guest} />)}
                     </Box>
                 )}
             </>
