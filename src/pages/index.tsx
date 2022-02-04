@@ -122,7 +122,7 @@ const Home: NextPage = () => {
                                 Gifts
                             </Typography>
                             <List>
-                                <ListItem key="gifts" sx={{ textAlign: 'center' }}>
+                                <ListItem key="gifts" sx={{ textAlign: 'center', pb: 3 }}>
                                     <ListItemText primary="If you are coming from abroad, your gift to us is your presence. We appreciate the effort!" />
                                 </ListItem>
                             </List>
