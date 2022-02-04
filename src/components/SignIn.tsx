@@ -7,8 +7,6 @@ import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { getCsrfToken } from 'next-auth/react';
 
-import Image from 'next/image';
-
 export default function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
