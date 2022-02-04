@@ -1,9 +1,4 @@
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
+import { Button, TextField, Box, Typography, Container, Paper } from '@mui/material';
 import { useState } from 'react';
 import { getCsrfToken } from 'next-auth/react';
 

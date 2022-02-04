@@ -1,8 +1,4 @@
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Box, Container, Paper, Button, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 

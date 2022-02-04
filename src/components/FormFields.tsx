@@ -1,11 +1,4 @@
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import Slider from '@mui/material/Slider';
+import { Grid, TextField, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Slider } from '@mui/material';
 import { useState } from 'react';
 import { useAppDispatch } from './context';
 
