@@ -8,6 +8,7 @@ import {
     RadioGroup,
     Container,
     Paper,
+    Typography,
 } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
@@ -92,7 +93,18 @@ const Admin: NextPage = () => {
                     <>
                         {guests.length ? (
                             <Box sx={{ p: 4 }}>
-                                <Paper variant="outlined" sx={{ p: 2, mb: 4, width: '60vw' }}>
+                                <Paper variant="outlined" sx={{ p: 4, mb: 4, width: '60vw' }}>
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 'bold',
+                                            letterSpacing: '0.5px',
+                                            textAlign: 'center',
+                                            mb: 2,
+                                        }}
+                                        variant="h4"
+                                    >
+                                        Filters
+                                    </Typography>
                                     <Grid container spacing={2}>
                                         <Grid item xs={12} sm={4}>
                                             <FormControl>

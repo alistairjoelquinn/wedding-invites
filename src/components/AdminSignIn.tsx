@@ -11,7 +11,13 @@ export default function AdminSignIn({ error, checkAdminPassword, setPassword }: 
     return (
         <Paper
             variant="elevation"
-            sx={{ p: '20px', borderRadius: '10px', width: '50vw', backgroundColor: '#f8f8ff' }}
+            sx={{
+                p: '20px',
+                borderRadius: '10px',
+                width: '50vw',
+                backgroundColor: '#f8f8ff',
+                transform: 'translateY(30vh)',
+            }}
             elevation={1}
         >
             <Box
