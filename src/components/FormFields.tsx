@@ -54,7 +54,7 @@ const AddressForm = () => {
             </Grid>
             <Grid item xs={12} sm={12}>
                 <FormControl sx={{ transform: 'translateY(15px)' }}>
-                    <FormLabel required id="demo-radio-buttons-group-label">
+                    <FormLabel required id="attending">
                         Are you able to attend?
                     </FormLabel>
                     <RadioGroup
@@ -72,7 +72,7 @@ const AddressForm = () => {
             </Grid>
             <Grid item xs={12} sm={12}>
                 <FormControl sx={{ transform: 'translateY(15px)' }}>
-                    <FormLabel required id="demo-radio-buttons-group-label">
+                    <FormLabel required id="partner">
                         Are you bringing a partner or plus one?
                     </FormLabel>
                     <RadioGroup
@@ -99,7 +99,7 @@ const AddressForm = () => {
             </Grid>
             <Grid item xs={12} sm={12}>
                 <FormControl sx={{ transform: 'translateY(5px)' }}>
-                    <FormLabel required id="demo-radio-buttons-group-label">
+                    <FormLabel required id="children">
                         Are you bringing children?
                     </FormLabel>
                     <RadioGroup
@@ -116,7 +116,7 @@ const AddressForm = () => {
             </Grid>
             <Grid item xs={12} sm={12}>
                 <FormControl fullWidth>
-                    <FormLabel id="demo-radio-buttons-group-label">If so how many?</FormLabel>
+                    <FormLabel id="number-of-children">If so how many?</FormLabel>
                     <Slider
                         onChange={handleSliderChange}
                         onMouseUp={handleSliderSubmit}

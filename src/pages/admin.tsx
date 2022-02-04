@@ -1,4 +1,4 @@
-import Container from '@mui/material/Container';
+import { Box, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Container } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -9,7 +9,7 @@ import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
 import AdminSignIn from '@/components/AdminSignIn';
 import UserCard from '@/components/UserCard';
-import { Box, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup } from '@mui/material';
+import useForm from '@/hooks/useForm';
 
 const Admin: NextPage = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
@@ -17,6 +17,7 @@ const Admin: NextPage = () => {
     const [error, setError] = useState('');
     const [guests, setGuests] = useState<Guest[]>([]);
     const router = useRouter();
+    const [toggleValues, setToggleValues] = useForm();
     const { data: session } = useSession({
         required: true,
         onUnauthenticated() {
@@ -64,12 +65,10 @@ const Admin: NextPage = () => {
                         <Box>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} sm={12}>
-                                    <FormControl sx={{ transform: 'translateY(15px)' }}>
-                                        <FormLabel required id="demo-radio-buttons-group-label">
-                                            Are you bringing a partner or plus one?
-                                        </FormLabel>
+                                    <FormControl>
+                                        <FormLabel id="partner">Bringing a partner:</FormLabel>
                                         <RadioGroup
-                                            onChange={handleChange}
+                                            onChange={setToggleValues}
                                             aria-labelledby="rsvp-radio-buttons-group-label"
                                             defaultValue={false}
                                             name="partner"
