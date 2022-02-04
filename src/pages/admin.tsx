@@ -76,67 +76,75 @@ const Admin: NextPage = () => {
             </>
             <>
                 {adminAuthenticated && (
-                    <Box sx={{ p: 4 }}>
-                        <Box>
-                            <Grid container spacing={2}>
-                                <Grid item xs={12} sm={4}>
-                                    <FormControl>
-                                        <FormLabel id="attending">Attending:</FormLabel>
-                                        <RadioGroup
-                                            onChange={handleChange}
-                                            aria-labelledby="rsvp-radio-buttons-group-label"
-                                            defaultValue={false}
-                                            name="attending"
-                                            sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
-                                        >
-                                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                                            <FormControlLabel value="maybe" control={<Radio />} label="Maybe" />
-                                        </RadioGroup>
-                                    </FormControl>
-                                </Grid>
-                                <Grid item xs={12} sm={4}>
-                                    <FormControl>
-                                        <FormLabel id="partner">Bringing a partner:</FormLabel>
-                                        <RadioGroup
-                                            onChange={handleChange}
-                                            aria-labelledby="rsvp-radio-buttons-group-label"
-                                            name="partner"
-                                            sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
-                                        >
-                                            <FormControlLabel value control={<Radio />} label="Yes" />
-                                            <FormControlLabel value={false} control={<Radio />} label="No" />
-                                        </RadioGroup>
-                                    </FormControl>
-                                </Grid>
-                                <Grid item xs={12} sm={4}>
-                                    <FormControl>
-                                        <FormLabel id="partner">Bringing children:</FormLabel>
-                                        <RadioGroup
-                                            onChange={handleChange}
-                                            aria-labelledby="rsvp-radio-buttons-group-label"
-                                            name="children"
-                                            sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
-                                        >
-                                            <FormControlLabel value control={<Radio />} label="Yes" />
-                                            <FormControlLabel value={false} control={<Radio />} label="No" />
-                                        </RadioGroup>
-                                    </FormControl>
-                                </Grid>
-                            </Grid>
-                        </Box>
-                        {!Object.keys(values).length
-                            ? guests.map((guest) => <UserCard key={guest._id} guest={guest} />)
-                            : guests
-                                  .filter((guest) => (values.attending ? guest.attending === values.attending : true))
-                                  .filter((guest) =>
-                                      values.partner ? guest.partner.toString() === values.partner : true,
-                                  )
-                                  .filter((guest) =>
-                                      values.children ? guest.children.toString() === values.children : true,
-                                  )
-                                  .map((guest) => <UserCard key={guest._id} guest={guest} />)}
-                    </Box>
+                    <>
+                        {guests.length ? (
+                            <Box sx={{ p: 4 }}>
+                                <Box>
+                                    <Grid container spacing={2}>
+                                        <Grid item xs={12} sm={4}>
+                                            <FormControl>
+                                                <FormLabel id="attending">Attending:</FormLabel>
+                                                <RadioGroup
+                                                    onChange={handleChange}
+                                                    aria-labelledby="rsvp-radio-buttons-group-label"
+                                                    defaultValue={false}
+                                                    name="attending"
+                                                    sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
+                                                >
+                                                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                                                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                                                    <FormControlLabel value="maybe" control={<Radio />} label="Maybe" />
+                                                </RadioGroup>
+                                            </FormControl>
+                                        </Grid>
+                                        <Grid item xs={12} sm={4}>
+                                            <FormControl>
+                                                <FormLabel id="partner">Bringing a partner:</FormLabel>
+                                                <RadioGroup
+                                                    onChange={handleChange}
+                                                    aria-labelledby="rsvp-radio-buttons-group-label"
+                                                    name="partner"
+                                                    sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
+                                                >
+                                                    <FormControlLabel value control={<Radio />} label="Yes" />
+                                                    <FormControlLabel value={false} control={<Radio />} label="No" />
+                                                </RadioGroup>
+                                            </FormControl>
+                                        </Grid>
+                                        <Grid item xs={12} sm={4}>
+                                            <FormControl>
+                                                <FormLabel id="partner">Bringing children:</FormLabel>
+                                                <RadioGroup
+                                                    onChange={handleChange}
+                                                    aria-labelledby="rsvp-radio-buttons-group-label"
+                                                    name="children"
+                                                    sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
+                                                >
+                                                    <FormControlLabel value control={<Radio />} label="Yes" />
+                                                    <FormControlLabel value={false} control={<Radio />} label="No" />
+                                                </RadioGroup>
+                                            </FormControl>
+                                        </Grid>
+                                    </Grid>
+                                </Box>
+                                {!Object.keys(values).length
+                                    ? guests.map((guest) => <UserCard key={guest._id} guest={guest} />)
+                                    : guests
+                                          .filter((guest) =>
+                                              values.attending ? guest.attending === values.attending : true,
+                                          )
+                                          .filter((guest) =>
+                                              values.partner ? guest.partner.toString() === values.partner : true,
+                                          )
+                                          .filter((guest) =>
+                                              values.children ? guest.children.toString() === values.children : true,
+                                          )
+                                          .map((guest) => <UserCard key={guest._id} guest={guest} />)}
+                            </Box>
+                        ) : (
+                            <div className={spin.spin} />
+                        )}
+                    </>
                 )}
             </>
         </Container>
