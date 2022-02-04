@@ -27,7 +27,7 @@ const Home: NextPage = () => {
             {!session && <div className={spin.spin} />}
             {session && (
                 <Container
-                    maxWidth="sm"
+                    maxWidth="md"
                     sx={{
                         ...flex,
                         flexDirection: 'column',
@@ -88,6 +88,24 @@ const Home: NextPage = () => {
                                     <ListItemText primary={item} />
                                 </ListItem>
                             ))}
+                        </List>
+                        <Typography sx={{ mt: 2, mb: 1, fontFamily: 'Seasons', letterSpacing: '1px' }} variant="h3">
+                            Hotels
+                        </Typography>
+                        <List>
+                            {content.hotels.map((item) => (
+                                <ListItem key={item} sx={{ pb: 0, textAlign: 'center' }}>
+                                    <ListItemText primary={item} />
+                                </ListItem>
+                            ))}
+                        </List>
+                        <Typography sx={{ mt: 2, mb: 1, fontFamily: 'Seasons', letterSpacing: '1px' }} variant="h3">
+                            Gifts
+                        </Typography>
+                        <List>
+                            <ListItem key="gifts" sx={{ textAlign: 'center' }}>
+                                <ListItemText primary="If you are coming from abroad, your gift to us is your presence. We appreciate the effort!" />
+                            </ListItem>
                         </List>
                         <Button onClick={() => router.push('/form')} variant="contained" sx={{ m: 3, color: 'white' }}>
                             R.S.V.P

@@ -1,15 +1,16 @@
 {
     "saturday": [
-        "Mid-afternoon start",
+        "Afternoon start",
         "Vow renewals with special guest celebrant Daniel Bradshaw",
         "Buffet with a traditional Colombian and British food",
-        "Party with DJ set from Colombian duo Discos Coletos",
+        "Party with music from Colombian duo Discos Coletos",
         "After-party with DJ sets from Ian Blevins and Swoose"
     ],
     "sunday": [
-        "We’ll meet again for fun in the sun. Details TBC",
-        "Hotels - more info to come",
-        "Gifts - if you are coming from abroad your gift to us is your attendance",
-        "If not - better make it good"
+        "We’ll meet again for fun in the sun- details TBC"
+    ],
+    "hotels": [
+        "We have reserved several 2-, 3- and 4-bed rooms at Michelberger Hotel on Warschauer Straße on a first-come-first-serve basis. Bookings come with free cancellation up to a week before arrival and the hotel welcomes families. These reserved rooms will expire on 15th March if not booked.",
+        "Michelberger is a favourite spot of ours and a really cool place to stay. However, there are plenty more hotel and hostel options in Friedrichshain and nearby Mitte that will suit all budgets."
     ]
 }
