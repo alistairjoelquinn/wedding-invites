@@ -41,7 +41,8 @@ const Home: NextPage = () => {
                         </Button>
                     </Box>
                     <Container
-                        maxWidth="md"
+                        maxWidth="lg"
+                        disableGutters
                         sx={{
                             ...flex,
                             flexDirection: 'column',
@@ -59,8 +60,8 @@ const Home: NextPage = () => {
                                 flexDirection: 'column',
                                 justifyContent: 'flex-start',
                                 alignItems: 'center',
-                                pl: 3,
-                                pr: 3,
+                                pl: 0,
+                                pr: 0,
                                 backgroundColor: '#f8f8ff',
                             }}
                         >
