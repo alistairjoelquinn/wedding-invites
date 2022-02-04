@@ -25,6 +25,13 @@ const theme = createTheme({
               src: url(/fonts/RobotoMono-Light.ttf) format('truetype');
             }
             @font-face {
+              font-family: 'RobotoBold';
+              font-style: normal;
+              font-display: swap;
+              font-weight: 400;
+              src: url(/fonts/RobotoMono-Bold.ttf) format('truetype');
+            }
+            @font-face {
               font-family: 'Seasons';
               font-style: normal;
               font-display: swap;
@@ -37,7 +44,11 @@ const theme = createTheme({
     typography: {
         fontFamily: 'RobotoLight',
         button: {
+            fontFamily: 'RobotoBold',
             textTransform: 'none',
+        },
+        h1: {
+            fontFamily: 'Seasons',
         },
     },
 });
