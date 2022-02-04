@@ -51,7 +51,7 @@ export default function SignIn() {
                     top: 0,
                     zIndex: 0,
                     width: '100%',
-                    transform: 'translateY(-20%)',
+                    // transform: 'translateY(-20%)',
                 }}
             />
             <Container component="div" maxWidth="xs" sx={{ position: 'relative', zIndex: 1, overflow: 'hidden' }}>

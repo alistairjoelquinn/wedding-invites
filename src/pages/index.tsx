@@ -27,8 +27,23 @@ const Home: NextPage = () => {
         <Container component="main" sx={{ ...flex, minHeight: '90vh' }}>
             {!session && <div className={spin.spin} />}
             {session && (
-                <Container>
-                    <Box sx={{ height: '60%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Container
+                // sx={{
+                //     position: 'absolute',
+                //     top: 0,
+                //     width: '100vw',
+                //     minHeight: '100%',
+                //     backgroundColor: 'rgb(255, 255, 255)',
+                // }}
+                >
+                    <Box
+                        sx={{
+                            height: '60%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
                         <img
                             src="https://res.cloudinary.com/dtirfwiy8/image/upload/q_10/v1643969151/main_eiiw0l.webp"
                             alt="Berlin bridge over water"
