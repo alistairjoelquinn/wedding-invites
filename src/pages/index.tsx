@@ -28,7 +28,7 @@ const Home: NextPage = () => {
             {!session && <div className={spin.spin} />}
             {session && (
                 <Container>
-                    <Box sx={{ height: '60%' }}>
+                    <Box sx={{ height: '60%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <img
                             src="https://res.cloudinary.com/dtirfwiy8/image/upload/q_10/v1643969151/main_eiiw0l.webp"
                             alt="Berlin bridge over water"
@@ -36,10 +36,10 @@ const Home: NextPage = () => {
                                 width: '100%',
                             }}
                         />
+                        <Button onClick={() => router.push('/form')} variant="contained" sx={{ m: 3, color: 'white' }}>
+                            R.S.V.P
+                        </Button>
                     </Box>
-                    <Button onClick={() => router.push('/form')} variant="contained" sx={{ m: 3, color: 'white' }}>
-                        R.S.V.P
-                    </Button>
                     <Container
                         maxWidth="md"
                         sx={{
