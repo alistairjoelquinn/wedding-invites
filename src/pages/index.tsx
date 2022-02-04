@@ -69,7 +69,6 @@ const Home: NextPage = () => {
                                 sx={{
                                     mt: 3,
                                     mb: 2,
-                                    fontWeight: 'bold',
                                     fontFamily: 'RobotoBold',
                                     letterSpacing: '1px',
                                     textAlign: 'center',
@@ -78,10 +77,7 @@ const Home: NextPage = () => {
                             >
                                 Event Details
                             </Typography>
-                            <Typography
-                                sx={{ fontWeight: 'bold', fontFamily: 'RobotoBold', letterSpacing: '0.5px' }}
-                                variant="h5"
-                            >
+                            <Typography sx={{ fontFamily: 'RobotoBold', letterSpacing: '0.5px' }} variant="h5">
                                 Venue
                             </Typography>
                             <List>
@@ -89,10 +85,7 @@ const Home: NextPage = () => {
                                     <ListItemText primary="The venue is TBC, but we are looking for somewhere in the Kreuzberg / Friedrichshain area." />
                                 </ListItem>
                             </List>
-                            <Typography
-                                sx={{ mt: 1, fontWeight: 'bold', fontFamily: 'RobotoBold', letterSpacing: '0.5px' }}
-                                variant="h5"
-                            >
+                            <Typography sx={{ mt: 1, fontFamily: 'RobotoBold', letterSpacing: '0.5px' }} variant="h5">
                                 Saturday
                             </Typography>
                             <List>
@@ -102,10 +95,7 @@ const Home: NextPage = () => {
                                     </ListItem>
                                 ))}
                             </List>
-                            <Typography
-                                sx={{ mt: 1, fontWeight: 'bold', fontFamily: 'RobotoBold', letterSpacing: '0.5px' }}
-                                variant="h5"
-                            >
+                            <Typography sx={{ mt: 1, fontFamily: 'RobotoBold', letterSpacing: '0.5px' }} variant="h5">
                                 Sunday
                             </Typography>
                             <List>
