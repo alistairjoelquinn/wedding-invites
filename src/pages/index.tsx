@@ -49,11 +49,22 @@ const Home: NextPage = () => {
                             pr: 3,
                         }}
                     >
-                        <Typography sx={{ m: 3, fontFamily: 'Seasons', letterSpacing: '1px' }} variant="h3">
-                            Itinerary
+                        <Typography sx={{ mt: 3, mb: 2, fontFamily: 'Seasons', letterSpacing: '1px' }} variant="h3">
+                            Event Details
                         </Typography>
                         <Typography
                             sx={{ fontWeight: 'bold', fontFamily: 'Seasons', letterSpacing: '0.5px' }}
+                            variant="h5"
+                        >
+                            Venue
+                        </Typography>
+                        <List>
+                            <ListItem key="venue" sx={{ textAlign: 'center' }}>
+                                <ListItemText primary="The venue is TBC, but we are looking for somewhere in the Kreuzberg / Friedrichshain area." />
+                            </ListItem>
+                        </List>
+                        <Typography
+                            sx={{ mt: 1, fontWeight: 'bold', fontFamily: 'Seasons', letterSpacing: '0.5px' }}
                             variant="h5"
                         >
                             Saturday
@@ -66,7 +77,7 @@ const Home: NextPage = () => {
                             ))}
                         </List>
                         <Typography
-                            sx={{ fontWeight: 'bold', fontFamily: 'Seasons', letterSpacing: '0.5px' }}
+                            sx={{ mt: 1, fontWeight: 'bold', fontFamily: 'Seasons', letterSpacing: '0.5px' }}
                             variant="h5"
                         >
                             Sunday
