@@ -79,7 +79,7 @@ const Admin: NextPage = () => {
                     <Box sx={{ p: 4 }}>
                         <Box>
                             <Grid container spacing={2}>
-                                <Grid item xs={12} sm={12}>
+                                <Grid item xs={12} sm={4}>
                                     <FormControl>
                                         <FormLabel id="attending">Attending:</FormLabel>
                                         <RadioGroup
@@ -95,9 +95,7 @@ const Admin: NextPage = () => {
                                         </RadioGroup>
                                     </FormControl>
                                 </Grid>
-                            </Grid>
-                            <Grid container spacing={2}>
-                                <Grid item xs={12} sm={12}>
+                                <Grid item xs={12} sm={4}>
                                     <FormControl>
                                         <FormLabel id="partner">Bringing a partner:</FormLabel>
                                         <RadioGroup
@@ -111,20 +109,32 @@ const Admin: NextPage = () => {
                                         </RadioGroup>
                                     </FormControl>
                                 </Grid>
+                                <Grid item xs={12} sm={4}>
+                                    <FormControl>
+                                        <FormLabel id="partner">Bringing children:</FormLabel>
+                                        <RadioGroup
+                                            onChange={handleChange}
+                                            aria-labelledby="rsvp-radio-buttons-group-label"
+                                            name="children"
+                                            sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
+                                        >
+                                            <FormControlLabel value control={<Radio />} label="Yes" />
+                                            <FormControlLabel value={false} control={<Radio />} label="No" />
+                                        </RadioGroup>
+                                    </FormControl>
+                                </Grid>
                             </Grid>
                         </Box>
                         {!Object.keys(values).length
                             ? guests.map((guest) => <UserCard key={guest._id} guest={guest} />)
                             : guests
                                   .filter((guest) => (values.attending ? guest.attending === values.attending : true))
-                                  //   .filter((guest) => {
-                                  //       console.log('guest, values: ', guest, values);
-                                  //       return values.partner ? `${guest.attending}` === values.partner : true;
-                                  //   })
-                                  .filter((guest) => {
-                                      console.log('guest.partner, values.partner: ', guest.partner, values.partner);
-                                      return values.partner ? guest.partner.toString() === values.partner : true;
-                                  })
+                                  .filter((guest) =>
+                                      values.partner ? guest.partner.toString() === values.partner : true,
+                                  )
+                                  .filter((guest) =>
+                                      values.children ? guest.children.toString() === values.children : true,
+                                  )
                                   .map((guest) => <UserCard key={guest._id} guest={guest} />)}
                     </Box>
                 )}
