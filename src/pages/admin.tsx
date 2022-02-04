@@ -96,14 +96,13 @@ const Admin: NextPage = () => {
                                     </FormControl>
                                 </Grid>
                             </Grid>
-                            {/* <Grid container spacing={2}>
+                            <Grid container spacing={2}>
                                 <Grid item xs={12} sm={12}>
                                     <FormControl>
                                         <FormLabel id="partner">Bringing a partner:</FormLabel>
                                         <RadioGroup
-                                            onChange={setToggleValues}
+                                            onChange={handleChange}
                                             aria-labelledby="rsvp-radio-buttons-group-label"
-                                            defaultValue={false}
                                             name="partner"
                                             sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
                                         >
@@ -112,15 +111,17 @@ const Admin: NextPage = () => {
                                         </RadioGroup>
                                     </FormControl>
                                 </Grid>
-                            </Grid> */}
+                            </Grid>
                         </Box>
                         {!Object.keys(values).length
                             ? guests.map((guest) => <UserCard key={guest._id} guest={guest} />)
                             : guests
+                                  .filter((guest) => (values.attending ? guest.attending === values.attending : true))
                                   .filter((guest) => {
                                       console.log('guest, values: ', guest, values);
-                                      return guest.attending === values.attending;
+                                      return values.partner ? `${guest.attending}` === values.partner : true;
                                   })
+                                  .filter((guest) => (values.partner ? guest.partner === 'true' : true))
                                   .map((guest) => <UserCard key={guest._id} guest={guest} />)}
                     </Box>
                 )}
