@@ -7,10 +7,10 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Slider from '@mui/material/Slider';
 import { useState } from 'react';
-import { Dispatch } from './context';
+import { useAppDispatch } from './context';
 
 const AddressForm = () => {
-    const dispatch = Dispatch();
+    const dispatch = useAppDispatch();
     const [sliderValue, setSliderValue] = useState<{ numberOfChildren: number | number[] }>({ numberOfChildren: 0 });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

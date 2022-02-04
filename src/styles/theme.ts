@@ -1,9 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
-import RobotoLight from './fonts/RobotoMono-Light.ttf';
-import Seasons from './fonts/seasons.otf';
-
 // Create a theme instance.
 const theme = createTheme({
     palette: {
@@ -17,11 +14,6 @@ const theme = createTheme({
             main: red.A400,
         },
     },
-    typography: {
-        button: {
-            textTransform: 'none',
-        },
-    },
     components: {
         MuiCssBaseline: {
             styleOverrides: `
@@ -30,9 +22,22 @@ const theme = createTheme({
               font-style: normal;
               font-display: swap;
               font-weight: 400;
-              src: local('Raleway'), local('Raleway-Regular'), url(${RobotoLight}) format('true-type');
+              src: url(/fonts/RobotoMono-Light.ttf) format('truetype');
+            }
+            @font-face {
+              font-family: 'Seasons';
+              font-style: normal;
+              font-display: swap;
+              font-weight: 400;
+              src: url(/fonts/seasons.otf) format('otf');
             }
           `,
+        },
+    },
+    typography: {
+        fontFamily: 'RobotoLight',
+        button: {
+            textTransform: 'none',
         },
     },
 });
