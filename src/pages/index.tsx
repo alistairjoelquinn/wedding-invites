@@ -61,6 +61,7 @@ const Home: NextPage = () => {
                                 alignItems: 'center',
                                 pl: 3,
                                 pr: 3,
+                                backgroundColor: '#f8f8ff',
                             }}
                         >
                             <Typography sx={{ mt: 3, mb: 2, fontFamily: 'Seasons', letterSpacing: '1px' }} variant="h3">
