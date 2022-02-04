@@ -44,29 +44,36 @@ const Home: NextPage = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'flex-start',
+                            alignItems: 'center',
                             pl: 3,
                             pr: 3,
                         }}
                     >
-                        <Typography sx={{ m: 3 }} variant="h4">
+                        <Typography sx={{ m: 3, fontFamily: 'Seasons', letterSpacing: '1px' }} variant="h3">
                             Itinerary
                         </Typography>
-                        <Typography sx={{ ml: 3, fontWeight: 'bold' }} variant="subtitle1">
+                        <Typography
+                            sx={{ fontWeight: 'bold', fontFamily: 'Seasons', letterSpacing: '0.5px' }}
+                            variant="h5"
+                        >
                             Saturday
                         </Typography>
-                        <List sx={{ ml: 3 }}>
+                        <List>
                             {content.saturday.map((item) => (
-                                <ListItem key={item} sx={{ pb: 0 }}>
+                                <ListItem key={item} sx={{ pb: 0, textAlign: 'center' }}>
                                     <ListItemText primary={item} />
                                 </ListItem>
                             ))}
                         </List>
-                        <Typography sx={{ ml: 3, fontWeight: 'bold' }} variant="subtitle1">
+                        <Typography
+                            sx={{ fontWeight: 'bold', fontFamily: 'Seasons', letterSpacing: '0.5px' }}
+                            variant="h5"
+                        >
                             Sunday
                         </Typography>
-                        <List sx={{ ml: 3 }}>
+                        <List>
                             {content.sunday.map((item) => (
-                                <ListItem key={item} sx={{ pb: 0 }}>
+                                <ListItem key={item} sx={{ pb: 0, textAlign: 'center' }}>
                                     <ListItemText primary={item} />
                                 </ListItem>
                             ))}
