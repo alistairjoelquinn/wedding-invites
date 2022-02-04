@@ -33,15 +33,13 @@ const Home: NextPage = () => {
                             src="https://res.cloudinary.com/dtirfwiy8/image/upload/q_10/v1643969151/main_eiiw0l.webp"
                             alt="Berlin bridge over water"
                             style={{
-                                // position: 'absolute',
-                                // left: 0,
-                                // top: 0,
-                                // zIndex: 0,
                                 width: '100%',
-                                transform: 'translateY(-20%)',
                             }}
                         />
                     </Box>
+                    <Button onClick={() => router.push('/form')} variant="contained" sx={{ m: 3, color: 'white' }}>
+                        R.S.V.P
+                    </Button>
                     <Container
                         maxWidth="md"
                         sx={{
@@ -53,7 +51,7 @@ const Home: NextPage = () => {
                         }}
                     >
                         <Paper
-                            elevation={1}
+                            elevation={3}
                             sx={{
                                 flexGrow: 1,
                                 width: '100%',
@@ -123,13 +121,6 @@ const Home: NextPage = () => {
                                     <ListItemText primary="If you are coming from abroad, your gift to us is your presence. We appreciate the effort!" />
                                 </ListItem>
                             </List>
-                            <Button
-                                onClick={() => router.push('/form')}
-                                variant="contained"
-                                sx={{ m: 3, color: 'white' }}
-                            >
-                                R.S.V.P
-                            </Button>
                         </Paper>
                     </Container>
                 </Container>
