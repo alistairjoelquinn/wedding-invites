@@ -9,21 +9,35 @@ import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
 import AdminSignIn from '@/components/AdminSignIn';
 import UserCard from '@/components/UserCard';
-import useForm from '@/hooks/useForm';
+
+interface ToggleValues {
+    attending?: 'yes' | 'no' | 'maybe';
+    partner?: 'true' | 'false';
+    children?: 'true' | 'false';
+}
 
 const Admin: NextPage = () => {
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [guests, setGuests] = useState<Guest[]>([]);
+    const [values, setValues] = useState<ToggleValues>({});
     const router = useRouter();
-    const [toggleValues, setToggleValues] = useForm();
     const { data: session } = useSession({
         required: true,
         onUnauthenticated() {
             router.replace('/signin');
         },
     });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.name === 'attending' || e.target.name === 'partner' || e.target.name === 'children') {
+            setValues({
+                ...values,
+                [e.target.name]: e.target.value,
+            });
+        }
+    };
 
     const getAdminGuestList = async () => {
         const res = await fetch('/api/admin-guest-list');
@@ -66,6 +80,24 @@ const Admin: NextPage = () => {
                             <Grid container spacing={2}>
                                 <Grid item xs={12} sm={12}>
                                     <FormControl>
+                                        <FormLabel id="attending">Attending:</FormLabel>
+                                        <RadioGroup
+                                            onChange={handleChange}
+                                            aria-labelledby="rsvp-radio-buttons-group-label"
+                                            defaultValue={false}
+                                            name="attending"
+                                            sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
+                                        >
+                                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                                            <FormControlLabel value="maybe" control={<Radio />} label="Maybe" />
+                                        </RadioGroup>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
+                            {/* <Grid container spacing={2}>
+                                <Grid item xs={12} sm={12}>
+                                    <FormControl>
                                         <FormLabel id="partner">Bringing a partner:</FormLabel>
                                         <RadioGroup
                                             onChange={setToggleValues}
@@ -79,11 +111,13 @@ const Admin: NextPage = () => {
                                         </RadioGroup>
                                     </FormControl>
                                 </Grid>
-                            </Grid>
+                            </Grid> */}
                         </Box>
-                        {guests.map((guest) => (
-                            <UserCard key={guest._id} guest={guest} />
-                        ))}
+                        {guests
+                            .filter((guest) => guest.attending === toggleValues.attending)
+                            .map((guest) => (
+                                <UserCard key={guest._id} guest={guest} />
+                            ))}
                     </Box>
                 )}
             </>
