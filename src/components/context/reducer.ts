@@ -4,9 +4,9 @@ export const initialState: RSVP = {
     fullName: '',
     email: '',
     attending: 'maybe',
-    partner: false,
+    partner: 'false',
     partnerName: '',
-    children: false,
+    children: 'false',
     numberOfChildren: 0,
 };
 
