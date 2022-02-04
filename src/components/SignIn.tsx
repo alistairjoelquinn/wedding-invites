@@ -51,11 +51,10 @@ export default function SignIn() {
                     top: 0,
                     zIndex: 0,
                     width: '100%',
-                    // transform: 'translateY(-20%)',
                 }}
             />
             <Container component="div" maxWidth="xs" sx={{ position: 'relative', zIndex: 1, overflow: 'hidden' }}>
-                <Paper variant="elevation" sx={{ p: '20px', borderRadius: '10px' }} elevation={1}>
+                <Paper variant="outlined" sx={{ p: '20px', borderRadius: '10px' }}>
                     <Box
                         sx={{
                             marginTop: 2,

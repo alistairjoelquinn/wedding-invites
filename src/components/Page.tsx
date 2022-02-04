@@ -13,7 +13,7 @@ const Page: React.FC = ({ children }) => {
             sx={{
                 minHeight: '100vh',
                 width: '100vw',
-                backgroundColor: router.pathname === '/signin' ? `rgb(245, 245, 245)` : `rgb(255, 255, 255)`,
+                backgroundColor: router.pathname === '/signin' ? `rgb(247, 247, 247)` : `rgb(255, 255, 255)`,
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column',
