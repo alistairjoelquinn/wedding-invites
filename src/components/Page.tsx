@@ -8,7 +8,7 @@ const Page: React.FC = ({ children }) => (
         sx={{
             minHeight: '100vh',
             width: '100vw',
-            backgroundColor: 'bisque',
+            // backgroundColor: 'bisque',
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',

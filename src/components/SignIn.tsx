@@ -43,7 +43,7 @@ export default function SignIn() {
     return (
         <>
             <img
-                src="https://res.cloudinary.com/dtirfwiy8/image/upload/q_10/v1643969151/bridge_az4kyg.webp"
+                src="https://res.cloudinary.com/dtirfwiy8/image/upload/q_10/v1643969151/bridge_otlmkp.webp"
                 alt="Berlin bridge over water"
                 style={{
                     position: 'absolute',
