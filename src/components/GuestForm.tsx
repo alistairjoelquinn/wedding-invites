@@ -8,10 +8,10 @@ import { useState } from 'react';
 
 import validate from '@/lib/validate';
 import FormFields from './FormFields';
-import { State } from './context';
+import { useAppState } from './context';
 
 const GuestForm = () => {
-    const state = State();
+    const state = useAppState();
     const router = useRouter();
     const [error, setError] = useState<string>('');
 

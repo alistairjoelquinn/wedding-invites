@@ -5,9 +5,6 @@ import { initialState, reducer } from './reducer';
 const StateContext = createContext<RSVP>({} as RSVP);
 const DispatchContext = createContext<React.Dispatch<Action>>(null!);
 
-export const State = () => useContext(StateContext);
-export const Dispatch = () => useContext(DispatchContext);
-
 export const StateProvider: React.FC = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -17,3 +14,6 @@ export const StateProvider: React.FC = ({ children }) => {
         </StateContext.Provider>
     );
 };
+
+export const useAppState = () => useContext(StateContext);
+export const useAppDispatch = () => useContext(DispatchContext);

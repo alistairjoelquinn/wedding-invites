@@ -11,7 +11,7 @@ import type { NextPage } from 'next';
 import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
 import content from '@/../content/index.json';
-import { State } from '@/components/context';
+import { useAppState } from '@/components/context';
 
 const Thanks: NextPage = () => {
     const router = useRouter();
@@ -22,7 +22,7 @@ const Thanks: NextPage = () => {
         },
     });
 
-    const { attending } = State();
+    const { attending } = useAppState();
 
     return (
         <Container component="main" sx={{ ...flex, minHeight: '90vh' }}>
