@@ -129,11 +129,13 @@ const Home: NextPage = () => {
                             >
                                 Gifts
                             </Typography>
-                            <List>
-                                <ListItem key="gifts1" sx={{ textAlign: 'center', pb: 0, mb: 0 }}>
-                                    <ListItemText primary="If you are travelling from abroad, your gift to us is your presence.\n Those who would like to help us furnish a new home in Berlin, we welcome contributions here." />
-                                </ListItem>
-                            </List>
+                            <Typography sx={{ mb: 3, textAlign: 'center' }}>
+                                <div>If you are travelling from abroad, your gift to us is your presence.</div>
+                                <div>
+                                    Those who would like to help us furnish a new home in Berlin, we welcome
+                                    contributions here.
+                                </div>
+                            </Typography>
                         </Paper>
                     </Container>
                 </Container>
