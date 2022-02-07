@@ -94,7 +94,7 @@ const Home: NextPage = () => {
                                 </ListItem>
                             </List>
                             <Typography
-                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
+                                sx={{ mt: 2, mb: 2, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
                                 variant="h3"
                             >
                                 Programme
@@ -120,7 +120,7 @@ const Home: NextPage = () => {
                                 ))}
                             </List>
                             <Typography
-                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
+                                sx={{ mt: 2, mb: 0, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
                                 variant="h3"
                             >
                                 Hotels
@@ -138,7 +138,7 @@ const Home: NextPage = () => {
                             >
                                 Gifts
                             </Typography>
-                            <Typography sx={{ mb: 3, textAlign: 'center' }}>
+                            <Typography sx={{ mb: 3, pt: 1, textAlign: 'center' }}>
                                 <div>If you are travelling from abroad, your gift to us is your presence.</div>
                                 <div>
                                     Those who would like to help us furnish a new home in Berlin, we welcome
