@@ -2,9 +2,9 @@ export interface RSVP {
     fullName: string;
     email: string;
     attending: 'yes' | 'no' | 'maybe';
-    partner: 'true' | 'false';
+    partner: boolean;
     partnerName?: string;
-    children: 'true' | 'false';
+    children: boolean;
     numberOfChildren: number;
     diet: string;
 }

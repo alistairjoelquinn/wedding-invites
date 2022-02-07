@@ -4,9 +4,9 @@ export const initialState: RSVP = {
     fullName: '',
     email: '',
     attending: 'maybe',
-    partner: 'false',
+    partner: false,
     partnerName: '',
-    children: 'false',
+    children: false,
     numberOfChildren: 0,
     diet: '',
 };
@@ -16,6 +16,7 @@ export const reducer = (state = initialState, action: Action) => {
         return action.payload.rsvp;
     }
     if (action.type === 'UPDATE_USER_VALUES') {
+        console.log('action', action.payload);
         return {
             ...state,
             ...action.payload,
