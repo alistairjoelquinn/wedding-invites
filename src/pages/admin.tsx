@@ -11,7 +11,7 @@ import {
     Typography,
 } from '@mui/material';
 import type { NextPage } from 'next';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
@@ -41,6 +41,15 @@ const Admin: NextPage = () => {
             router.replace('/signin');
         },
     });
+
+    const guestList = useMemo(
+        () =>
+            guests
+                .filter((guest) => (values.attending ? guest.attending === values.attending : true))
+                .filter((guest) => (values.partner ? guest.partner.toString() === values.partner : true))
+                .filter((guest) => (values.children ? guest.children.toString() === values.children : true)),
+        [values, guests],
+    );
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === 'attending' || e.target.name === 'partner' || e.target.name === 'children') {
@@ -164,20 +173,22 @@ const Admin: NextPage = () => {
                                     >
                                         Numbers
                                     </Typography>
+                                    <Typography sx={{ mt: 1.5 }} color="text.secondary">
+                                        Number of responses: {guestList.length}
+                                    </Typography>
+                                    <Typography sx={{ mt: 1.5 }} color="text.secondary">
+                                        Number of adults: {guestList.length}
+                                    </Typography>
+                                    <Typography sx={{ mt: 1.5 }} color="text.secondary">
+                                        Number of children: {guestList.length}
+                                    </Typography>
+                                    <Typography sx={{ mt: 1.5 }} color="text.secondary">
+                                        Total number of guests: {guestList.length}
+                                    </Typography>
                                 </Paper>
                                 {!Object.keys(values).length
-                                    ? guests.map((guest) => <UserCard key={guest._id} guest={guest} />)
-                                    : guests
-                                          .filter((guest) =>
-                                              values.attending ? guest.attending === values.attending : true,
-                                          )
-                                          .filter((guest) =>
-                                              values.partner ? guest.partner.toString() === values.partner : true,
-                                          )
-                                          .filter((guest) =>
-                                              values.children ? guest.children.toString() === values.children : true,
-                                          )
-                                          .map((guest) => <UserCard key={guest._id} guest={guest} />)}
+                                    ? guestList.map((guest) => <UserCard key={guest._id} guest={guest} />)
+                                    : guests.map((guest) => <UserCard key={guest._id} guest={guest} />)}
                             </Box>
                         ) : (
                             <div className={spin.spin} />
