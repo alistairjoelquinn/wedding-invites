@@ -61,7 +61,7 @@ const GuestForm = () => {
                             Back
                         </Button>
                         <Button onClick={formSubmitHandler} variant="contained" sx={{ mt: 3, ml: 1, color: 'white' }}>
-                            {sending ? 'Sending...' : 'Send'}
+                            {sending ? <div className="dots" /> : 'Send'}
                         </Button>
                     </Box>
                 </>
