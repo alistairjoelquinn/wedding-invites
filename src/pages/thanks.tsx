@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import { Container, Paper, Typography } from '@mui/material';
+import { useLayoutEffect } from 'react';
 import type { NextPage } from 'next';
 
 import spin from '@/styles/spin.module.css';
@@ -18,6 +19,10 @@ const Thanks: NextPage = () => {
     });
 
     const { attending, fullName } = useAppState();
+
+    useLayoutEffect(() => {
+        if (!fullName) router.replace('/');
+    }, [fullName, router]);
 
     return (
         <Container component="main" sx={{ ...flex, minHeight: '90vh' }}>
