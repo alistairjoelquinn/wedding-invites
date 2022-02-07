@@ -36,7 +36,12 @@ const Home: NextPage = () => {
                                 width: '100%',
                             }}
                         />
-                        <Button onClick={() => router.push('/form')} variant="contained" sx={{ m: 3, color: 'white' }}>
+                        <Button
+                            id="user-form-link"
+                            onClick={() => router.push('/form')}
+                            variant="contained"
+                            sx={{ m: 3, color: 'white' }}
+                        >
                             R.S.V.P
                         </Button>
                     </Box>

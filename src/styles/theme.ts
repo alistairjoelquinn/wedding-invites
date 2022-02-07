@@ -38,6 +38,11 @@ const theme = createTheme({
               font-weight: 400;
               src: url(/fonts/comfortaa.ttf) format('truetype');
             }
+            @media (min-width: 700px) {
+                #user-form-link {
+                    font-size: 40px;
+                }
+            }
           `,
         },
     },
