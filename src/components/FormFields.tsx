@@ -132,6 +132,16 @@ const AddressForm = () => {
                     />
                 </FormControl>
             </Grid>
+            <Grid item xs={12} sm={12}>
+                <TextField
+                    onChange={handleChange}
+                    id="diet"
+                    name="diet"
+                    label="Any special dietry requirements?"
+                    fullWidth
+                    variant="standard"
+                />
+            </Grid>
         </Grid>
     );
 };
