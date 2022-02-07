@@ -69,7 +69,7 @@ const Home: NextPage = () => {
                                 sx={{
                                     mt: 3,
                                     mb: 2,
-                                    fontFamily: 'RobotoBold',
+                                    fontFamily: 'Comfortaa',
                                     letterSpacing: '1px',
                                     textAlign: 'center',
                                 }}
@@ -77,7 +77,7 @@ const Home: NextPage = () => {
                             >
                                 Event Details
                             </Typography>
-                            <Typography sx={{ fontFamily: 'RobotoBold', letterSpacing: '0.5px' }} variant="h5">
+                            <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Venue
                             </Typography>
                             <List>
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
                                     <ListItemText primary="The venue is TBC, but we are looking for somewhere in the Kreuzberg / Friedrichshain area." />
                                 </ListItem>
                             </List>
-                            <Typography sx={{ mt: 1, fontFamily: 'RobotoBold', letterSpacing: '0.5px' }} variant="h5">
+                            <Typography sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Saturday
                             </Typography>
                             <List>
@@ -95,7 +95,7 @@ const Home: NextPage = () => {
                                     </ListItem>
                                 ))}
                             </List>
-                            <Typography sx={{ mt: 1, fontFamily: 'RobotoBold', letterSpacing: '0.5px' }} variant="h5">
+                            <Typography sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Sunday
                             </Typography>
                             <List>
@@ -106,7 +106,7 @@ const Home: NextPage = () => {
                                 ))}
                             </List>
                             <Typography
-                                sx={{ mt: 2, mb: 1, fontFamily: 'RobotoBold', letterSpacing: '1px' }}
+                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
                                 variant="h3"
                             >
                                 Hotels
@@ -119,7 +119,7 @@ const Home: NextPage = () => {
                                 ))}
                             </List>
                             <Typography
-                                sx={{ mt: 2, mb: 1, fontFamily: 'RobotoBold', letterSpacing: '1px' }}
+                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
                                 variant="h3"
                             >
                                 Gifts

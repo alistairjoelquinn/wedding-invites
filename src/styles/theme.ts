@@ -25,13 +25,19 @@ const theme = createTheme({
               src: url(/fonts/RobotoMono-Light.ttf) format('truetype');
             }
             @font-face {
+              font-family: 'RobotoBold';
+              font-style: normal;
+              font-display: swap;
+              font-weight: 400;
+              src: url(/fonts/RobotoBold.ttf) format('truetype');
+            }
+            @font-face {
               font-family: 'Comfortaa';
               font-style: normal;
               font-display: swap;
               font-weight: 400;
               src: url(/fonts/comfortaa.ttf) format('truetype');
             }
-
           `,
         },
     },
@@ -42,7 +48,7 @@ const theme = createTheme({
             textTransform: 'none',
         },
         h1: {
-            fontFamily: 'RobotoBold',
+            fontFamily: 'Comfortaa',
         },
     },
 });

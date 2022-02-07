@@ -45,7 +45,7 @@ const GuestForm = () => {
                 sx={{ pt: '20px', pb: '20px', pl: 4, pr: 4, mt: '20px', backgroundColor: '#f8f8ff' }}
             >
                 <Typography
-                    sx={{ mt: 1, fontFamily: 'RobotoBold', letterSpacing: '1px' }}
+                    sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
                     variant={error ? 'h5' : 'h3'}
                     align="center"
                 >
