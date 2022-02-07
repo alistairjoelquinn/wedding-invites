@@ -6,6 +6,7 @@ export interface RSVP {
     partnerName?: string;
     children: 'true' | 'false';
     numberOfChildren: number;
+    diet: string;
 }
 
 export interface Guest extends RSVP {

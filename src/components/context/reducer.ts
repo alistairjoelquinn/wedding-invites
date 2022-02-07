@@ -8,6 +8,7 @@ export const initialState: RSVP = {
     partnerName: '',
     children: 'false',
     numberOfChildren: 0,
+    diet: '',
 };
 
 export const reducer = (state = initialState, action: Action) => {

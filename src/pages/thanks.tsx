@@ -5,6 +5,7 @@ import type { NextPage } from 'next';
 
 import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
+import thanksText from '@/lib/thanksText';
 import { useAppState } from '@/components/context';
 
 const Thanks: NextPage = () => {
@@ -16,7 +17,7 @@ const Thanks: NextPage = () => {
         },
     });
 
-    const { attending } = useAppState();
+    const { attending, fullName } = useAppState();
 
     return (
         <Container component="main" sx={{ ...flex, minHeight: '90vh' }}>
@@ -46,15 +47,8 @@ const Thanks: NextPage = () => {
                             backgroundColor: '#f8f8ff',
                         }}
                     >
-                        <Typography sx={{ m: 3 }} variant="h4">
-                            Thanks for responding!
-                        </Typography>
                         <Typography sx={{ ml: 3, mr: 3, mb: 3, fontSize: '18px' }} variant="h5">
-                            {attending === 'yes'
-                                ? `We're looking forward to seeing you at the wedding.`
-                                : attending === 'no'
-                                ? `We're sorry you can't make it, hopefully we can celebrate with you soon.`
-                                : `Hopefully you can make it, but if not we look forward to celebrating with you soon.`}
+                            {thanksText(attending, fullName)}
                         </Typography>
                     </Paper>
                 </Container>
