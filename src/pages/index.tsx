@@ -82,7 +82,10 @@ const Home: NextPage = () => {
                             >
                                 Event Details
                             </Typography>
-                            <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
+                            <Typography
+                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
+                                variant="h3"
+                            >
                                 Venue
                             </Typography>
                             <List>
@@ -90,6 +93,12 @@ const Home: NextPage = () => {
                                     <ListItemText primary="The venue is TBC, but it will be somewhere family-friendly in Berlin." />
                                 </ListItem>
                             </List>
+                            <Typography
+                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
+                                variant="h3"
+                            >
+                                Programme
+                            </Typography>
                             <Typography sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Saturday
                             </Typography>
