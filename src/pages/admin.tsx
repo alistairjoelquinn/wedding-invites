@@ -152,6 +152,19 @@ const Admin: NextPage = () => {
                                         </Grid>
                                     </Grid>
                                 </Paper>
+                                <Paper variant="outlined" sx={{ p: 4, mb: 4, width: '60vw' }}>
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 'bold',
+                                            letterSpacing: '0.5px',
+                                            textAlign: 'center',
+                                            mb: 2,
+                                        }}
+                                        variant="h4"
+                                    >
+                                        Numbers
+                                    </Typography>
+                                </Paper>
                                 {!Object.keys(values).length
                                     ? guests.map((guest) => <UserCard key={guest._id} guest={guest} />)
                                     : guests

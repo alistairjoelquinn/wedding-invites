@@ -14,6 +14,9 @@ const UserCard = ({ guest }: Props) => (
                     Name: {guest.fullName}
                 </Typography>
                 <Typography sx={{ mt: 1.5 }} color="text.secondary">
+                    Email Address: {guest.email}
+                </Typography>
+                <Typography sx={{ mt: 1.5 }} color="text.secondary">
                     Attending: {guest.attending[0].toUpperCase() + guest.attending.substring(1)}
                 </Typography>
                 <Typography sx={{ mt: 1.5 }} color="text.secondary">
