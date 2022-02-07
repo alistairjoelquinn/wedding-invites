@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 import validate from '@/lib/validate';
+import dots from '@/styles/dots.module.css';
 import FormFields from './FormFields';
 import { useAppState } from './context';
 
@@ -10,7 +11,7 @@ const GuestForm = () => {
     const state = useAppState();
     const router = useRouter();
     const [error, setError] = useState('');
-    const [sending, setSending] = useState(false);
+    const [sending, setSending] = useState(true);
 
     const formSubmitHandler = async () => {
         setSending(true);
@@ -27,8 +28,8 @@ const GuestForm = () => {
                 body: JSON.stringify(state),
             });
             const data = await res.json();
-            setSending(false);
             if (data.error) {
+                setSending(false);
                 setError(data.error);
             } else if (data) {
                 router.push('/thanks');
@@ -61,7 +62,7 @@ const GuestForm = () => {
                             Back
                         </Button>
                         <Button onClick={formSubmitHandler} variant="contained" sx={{ mt: 3, ml: 1, color: 'white' }}>
-                            {sending ? <div className="dots" /> : 'Send'}
+                            {sending ? <div className={dots.dots} /> : 'Send'}
                         </Button>
                     </Box>
                 </>
