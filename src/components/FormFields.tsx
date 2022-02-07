@@ -7,7 +7,7 @@ const AddressForm = () => {
     const [sliderValue, setSliderValue] = useState<{ numberOfChildren: number | number[] }>({ numberOfChildren: 0 });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.dir(e.target);
+        console.dir('LOKKKY', e.target);
         dispatch({
             type: 'UPDATE_USER_VALUES',
             payload: {
