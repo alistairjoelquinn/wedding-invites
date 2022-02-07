@@ -47,8 +47,8 @@ const Thanks: NextPage = () => {
                             backgroundColor: '#f8f8ff',
                         }}
                     >
-                        <Typography sx={{ ml: 3, mr: 3, mb: 3, fontSize: '18px' }} variant="h5">
-                            {thanksText(attending, fullName)}
+                        <Typography sx={{ m: 3, fontSize: '18px' }} variant="h5">
+                            <div dangerouslySetInnerHTML={{ __html: thanksText(attending, fullName) }} />
                         </Typography>
                     </Paper>
                 </Container>
