@@ -11,7 +11,7 @@ const GuestForm = () => {
     const state = useAppState();
     const router = useRouter();
     const [error, setError] = useState('');
-    const [sending, setSending] = useState(true);
+    const [sending, setSending] = useState(false);
 
     const formSubmitHandler = async () => {
         setSending(true);
