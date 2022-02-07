@@ -25,19 +25,13 @@ const theme = createTheme({
               src: url(/fonts/RobotoMono-Light.ttf) format('truetype');
             }
             @font-face {
-              font-family: 'RobotoBold';
+              font-family: 'Comfortaa';
               font-style: normal;
               font-display: swap;
               font-weight: 400;
-              src: url(/fonts/RobotoMono-Bold.ttf) format('truetype');
+              src: url(/fonts/comfortaa.ttf) format('truetype');
             }
-            @font-face {
-              font-family: 'Seasons';
-              font-style: normal;
-              font-display: swap;
-              font-weight: 400;
-              src: url(/fonts/seasons.otf) format('otf');
-            }
+
           `,
         },
     },
