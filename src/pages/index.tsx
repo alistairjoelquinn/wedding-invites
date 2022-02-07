@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                             </Typography>
                             <List>
                                 <ListItem key="venue" sx={{ textAlign: 'center' }}>
-                                    <ListItemText primary="The venue is TBC, but we are looking for somewhere in the Kreuzberg / Friedrichshain area." />
+                                    <ListItemText primary="The venue is TBC, but it will be somewhere family-friendly in Berlin." />
                                 </ListItem>
                             </List>
                             <Typography sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
@@ -125,8 +125,11 @@ const Home: NextPage = () => {
                                 Gifts
                             </Typography>
                             <List>
-                                <ListItem key="gifts" sx={{ textAlign: 'center', pb: 3 }}>
-                                    <ListItemText primary="If you are coming from abroad, your gift to us is your presence. We appreciate the effort!" />
+                                <ListItem key="gifts1" sx={{ textAlign: 'center', pb: 3 }}>
+                                    <ListItemText primary="If you are travelling from abroad, your gift to us is your presence." />
+                                </ListItem>
+                                <ListItem key="gifts2" sx={{ textAlign: 'center', pb: 3 }}>
+                                    <ListItemText primary="Those who would like to help us furnish a new home in Berlin, we welcome contributions here." />
                                 </ListItem>
                             </List>
                         </Paper>
