@@ -82,8 +82,8 @@ const AddressForm = () => {
                         name="partner"
                         sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
                     >
-                        <FormControlLabel value="true" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="false" control={<Radio />} label="No" />
+                        <FormControlLabel value control={<Radio />} label="Yes" />
+                        <FormControlLabel value={false} control={<Radio />} label="No" />
                     </RadioGroup>
                 </FormControl>
             </Grid>
@@ -109,8 +109,8 @@ const AddressForm = () => {
                         name="children"
                         sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
                     >
-                        <FormControlLabel value="true" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="false" control={<Radio />} label="No" />
+                        <FormControlLabel value control={<Radio />} label="Yes" />
+                        <FormControlLabel value={false} control={<Radio />} label="No" />
                     </RadioGroup>
                 </FormControl>
             </Grid>
