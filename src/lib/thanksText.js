@@ -28,5 +28,13 @@ export default (attending, fullName) =>
             `
                 Dear ${fullName}, <br><br> 
 
-                Thanks for RSVP-ing. We are glad to hear you are thinking about attending our wedding celebration in Berlin on 27th August 2022.         
+                Thanks for RSVP-ing. We are glad to hear you are thinking about attending our wedding celebration in Berlin on 27th August 2022.<br><br> 
+                
+                We have added your name to our mailing list and will send you the final details of the event in the coming months.<br><br>
+
+                If at a later date you decide you can definitely attend, please get in touch to let us know.<br><br>
+
+                Best Wishes<br>
+                Caro and Richie
+
             `;
