@@ -40,7 +40,7 @@ const theme = createTheme({
             }
             @media (min-width: 700px) {
                 #user-form-link {
-                    font-size: 40px;
+                    font-size: 30px;
                 }
             }
           `,
