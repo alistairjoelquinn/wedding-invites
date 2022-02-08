@@ -44,7 +44,7 @@ exports.sendEmail = (rsvp) => ses
     .sendEmail({
         Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
         Destination: {
-            ToAddresses: [process.env.ADMIN_EMAIL],
+            ToAddresses: [process.env.USER_EMAIL],
         },
         Message: {
             Body: {
