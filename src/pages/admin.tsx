@@ -115,7 +115,12 @@ const Admin: NextPage = () => {
                                         Filters
                                     </Typography>
                                     <Grid container spacing={2}>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            sx={{ display: 'flex', justifyContent: 'flex-start' }}
+                                        >
                                             <FormControl>
                                                 <FormLabel id="attending">Attending:</FormLabel>
                                                 <RadioGroup
@@ -131,7 +136,12 @@ const Admin: NextPage = () => {
                                                 </RadioGroup>
                                             </FormControl>
                                         </Grid>
-                                        <Grid item xs={12} sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            sx={{ display: 'flex', justifyContent: 'flex-start' }}
+                                        >
                                             <FormControl>
                                                 <FormLabel id="partner">Bringing a partner:</FormLabel>
                                                 <RadioGroup
@@ -145,13 +155,37 @@ const Admin: NextPage = () => {
                                                 </RadioGroup>
                                             </FormControl>
                                         </Grid>
-                                        <Grid item xs={12} sm={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            sx={{ display: 'flex', justifyContent: 'flex-start' }}
+                                        >
                                             <FormControl>
                                                 <FormLabel id="partner">Bringing children:</FormLabel>
                                                 <RadioGroup
                                                     onChange={handleChange}
                                                     aria-labelledby="rsvp-radio-buttons-group-label"
                                                     name="children"
+                                                    sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
+                                                >
+                                                    <FormControlLabel value control={<Radio />} label="Yes" />
+                                                    <FormControlLabel value={false} control={<Radio />} label="No" />
+                                                </RadioGroup>
+                                            </FormControl>
+                                        </Grid>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            sx={{ display: 'flex', justifyContent: 'flex-start' }}
+                                        >
+                                            <FormControl>
+                                                <FormLabel id="diet">Dietry Requirements:</FormLabel>
+                                                <RadioGroup
+                                                    onChange={handleChange}
+                                                    aria-labelledby="rsvp-radio-buttons-group-label"
+                                                    name="diet"
                                                     sx={{ flexDirection: 'row', verticalAlign: 'bottom' }}
                                                 >
                                                     <FormControlLabel value control={<Radio />} label="Yes" />
