@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
-import { Container, Button, Typography, Paper, Box, List, ListItem, ListItemText, ListItemAvatar } from '@mui/material';
+import { Container, Button, Typography, Paper, Box, List, ListItem, ListItemText } from '@mui/material';
+import parse from 'html-react-parser';
 import type { NextPage } from 'next';
 
 import spin from '@/styles/spin.module.css';
@@ -70,61 +71,41 @@ const Home: NextPage = () => {
                                 backgroundColor: '#f8f8ff',
                             }}
                         >
-                            <Typography
-                                sx={{ mt: 2, mb: 2, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
-                                variant="h3"
-                            >
+                            <Typography sx={{ m: 3, fontFamily: 'Comfortaa', letterSpacing: '1px' }} variant="h3">
                                 Programme
                             </Typography>
-                            <Typography sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
+                            <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Saturday
                             </Typography>
-                            <Typography sx={{ m: 3, pt: 1, pl: 1, pr: 1, textAlign: 'center' }}>
+                            <Typography sx={{ m: 3, textAlign: 'center' }}>
                                 {content.saturday.map((item) => (
                                     <div key={item}>{item}</div>
                                 ))}
                             </Typography>
-                            <Typography sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
+                            <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Sunday
                             </Typography>
-                            <List>
-                                {content.sunday.map((item) => (
-                                    <ListItem key={item} sx={{ pb: 0, textAlign: 'center' }}>
-                                        <ListItemText primary={item} />
-                                    </ListItem>
-                                ))}
-                            </List>
-                            <Typography
-                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
-                                variant="h3"
-                            >
+                            <Typography sx={{ m: 3, textAlign: 'center' }}>
+                                <div>We’ll meet again for fun in the sun - details TBC.</div>
+                            </Typography>
+                            <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '1px' }} variant="h3">
                                 Venue
                             </Typography>
-                            <List>
-                                <ListItem key="venue" sx={{ textAlign: 'center' }}>
-                                    <ListItemText primary="The venue is TBC, but it will be somewhere family-friendly in Berlin." />
-                                </ListItem>
-                            </List>
-                            <Typography
-                                sx={{ mt: 2, mb: 0, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
-                                variant="h3"
-                            >
+                            <Typography sx={{ m: 3, textAlign: 'center' }}>
+                                <div>The venue is TBC, but it will be somewhere family-friendly in Berlin.</div>
+                            </Typography>
+                            <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '1px' }} variant="h3">
                                 Hotels
                             </Typography>
-                            <List>
+                            <Typography sx={{ m: 3, textAlign: 'center' }}>
                                 {content.hotels.map((item) => (
-                                    <ListItem key={item} sx={{ pb: 0, textAlign: 'center' }}>
-                                        <ListItemText primary={item} />
-                                    </ListItem>
+                                    <div key={item}>{parse(item)}</div>
                                 ))}
-                            </List>
-                            <Typography
-                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
-                                variant="h3"
-                            >
+                            </Typography>
+                            <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '1px' }} variant="h3">
                                 Gifts
                             </Typography>
-                            <Typography sx={{ mb: 3, pt: 1, pl: 1, pr: 1, textAlign: 'center' }}>
+                            <Typography sx={{ m: 3, textAlign: 'center' }}>
                                 <div>If you are travelling from abroad, your gift to us is your presence.</div>
                                 <div>
                                     Those who would like to help us furnish a new home in Berlin, we welcome
