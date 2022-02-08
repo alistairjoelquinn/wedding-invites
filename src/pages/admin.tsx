@@ -9,6 +9,7 @@ import {
     Container,
     Paper,
     Typography,
+    Button,
 } from '@mui/material';
 import type { NextPage } from 'next';
 import { useState, useMemo } from 'react';
@@ -16,10 +17,10 @@ import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
 import { Guest } from '@/components/context/models';
-import spin from '@/styles/spin.module.css';
-import flex from '@/lib/flex';
 import AdminSignIn from '@/components/AdminSignIn';
 import UserCard from '@/components/UserCard';
+import spin from '@/styles/spin.module.css';
+import flex from '@/lib/flex';
 import stringToBool from '@/lib/stringToBool';
 
 interface ToggleValues {
@@ -141,6 +142,7 @@ const Admin: NextPage = () => {
                                                     <FormControlLabel value="no" control={<Radio />} label="No" />
                                                     <FormControlLabel value="maybe" control={<Radio />} label="Maybe" />
                                                 </RadioGroup>
+                                                <Button variant="outlined">Remove filter</Button>
                                             </FormControl>
                                         </Grid>
                                         <Grid
@@ -160,6 +162,7 @@ const Admin: NextPage = () => {
                                                     <FormControlLabel value control={<Radio />} label="Yes" />
                                                     <FormControlLabel value={false} control={<Radio />} label="No" />
                                                 </RadioGroup>
+                                                <Button variant="outlined">Remove filter</Button>
                                             </FormControl>
                                         </Grid>
                                         <Grid
@@ -179,6 +182,7 @@ const Admin: NextPage = () => {
                                                     <FormControlLabel value control={<Radio />} label="Yes" />
                                                     <FormControlLabel value={false} control={<Radio />} label="No" />
                                                 </RadioGroup>
+                                                <Button variant="outlined">Remove filter</Button>
                                             </FormControl>
                                         </Grid>
                                         <Grid
@@ -198,6 +202,7 @@ const Admin: NextPage = () => {
                                                     <FormControlLabel value control={<Radio />} label="Yes" />
                                                     <FormControlLabel value={false} control={<Radio />} label="No" />
                                                 </RadioGroup>
+                                                <Button variant="outlined">Remove filter</Button>
                                             </FormControl>
                                         </Grid>
                                     </Grid>
