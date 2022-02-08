@@ -68,7 +68,17 @@ const Admin: NextPage = () => {
         }
     };
 
-    const handleClick = () => {};
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const current = e.currentTarget.id as 'attending' | 'partner' | 'children' | 'diet';
+        console.log('current: ', current);
+        setValues((prev) => {
+            console.log('prev: ', prev);
+            const newVals = prev;
+            delete newVals[current];
+            console.log('newVals: ', newVals);
+            return newVals;
+        });
+    };
 
     const getAdminGuestList = async () => {
         const res = await fetch('/api/admin-guest-list');
