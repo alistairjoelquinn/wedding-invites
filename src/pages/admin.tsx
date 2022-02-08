@@ -26,6 +26,7 @@ interface ToggleValues {
     attending?: 'yes' | 'no' | 'maybe';
     partner?: boolean;
     children?: boolean;
+    diet?: boolean;
 }
 
 const Admin: NextPage = () => {
@@ -47,12 +48,18 @@ const Admin: NextPage = () => {
             guests
                 .filter((guest) => (values.attending ? guest.attending === values.attending : true))
                 .filter((guest) => ('partner' in values ? guest.partner === values.partner : true))
-                .filter((guest) => ('children' in values ? guest.children === values.children : true)),
+                .filter((guest) => ('children' in values ? guest.children === values.children : true))
+                .filter((guest) => ('diet' in values ? !!guest.diet === values.diet : true)),
         [values, guests],
     );
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.name === 'attending' || e.target.name === 'partner' || e.target.name === 'children') {
+        if (
+            e.target.name === 'attending' ||
+            e.target.name === 'partner' ||
+            e.target.name === 'children' ||
+            e.target.name === 'diet'
+        ) {
             setValues({
                 ...values,
                 [e.target.name]: stringToBool(e.target.value),
