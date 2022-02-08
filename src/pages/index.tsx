@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
-import { Container, Button, Typography, Paper, Box, List, ListItem, ListItemText } from '@mui/material';
+import { Container, Button, Typography, Paper, Box } from '@mui/material';
 import parse from 'html-react-parser';
 import type { NextPage } from 'next';
 
