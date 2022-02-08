@@ -79,15 +79,11 @@ const Home: NextPage = () => {
                             <Typography sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Saturday
                             </Typography>
-                            <List>
+                            <Typography sx={{ m: 3, pt: 1, pl: 1, pr: 1, textAlign: 'center' }}>
                                 {content.saturday.map((item) => (
-                                    <>
-                                        <ListItem key={item} sx={{ pb: 0, textAlign: 'center' }}>
-                                            <ListItemText primary={item} />
-                                        </ListItem>
-                                    </>
+                                    <div key={item}>{item}</div>
                                 ))}
-                            </List>
+                            </Typography>
                             <Typography sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Sunday
                             </Typography>
@@ -128,7 +124,7 @@ const Home: NextPage = () => {
                             >
                                 Gifts
                             </Typography>
-                            <Typography sx={{ mb: 3, pt: 1, textAlign: 'center' }}>
+                            <Typography sx={{ mb: 3, pt: 1, pl: 1, pr: 1, textAlign: 'center' }}>
                                 <div>If you are travelling from abroad, your gift to us is your presence.</div>
                                 <div>
                                     Those who would like to help us furnish a new home in Berlin, we welcome
