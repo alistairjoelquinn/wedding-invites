@@ -20,11 +20,12 @@ import spin from '@/styles/spin.module.css';
 import flex from '@/lib/flex';
 import AdminSignIn from '@/components/AdminSignIn';
 import UserCard from '@/components/UserCard';
+import stringToBool from '@/lib/stringToBool';
 
 interface ToggleValues {
     attending?: 'yes' | 'no' | 'maybe';
-    partner?: 'true' | 'false';
-    children?: 'true' | 'false';
+    partner?: boolean;
+    children?: boolean;
 }
 
 const Admin: NextPage = () => {
@@ -46,8 +47,8 @@ const Admin: NextPage = () => {
         () =>
             guests
                 .filter((guest) => (values.attending ? guest.attending === values.attending : true))
-                .filter((guest) => (values.partner ? guest.partner.toString() === values.partner : true))
-                .filter((guest) => (values.children ? guest.children.toString() === values.children : true)),
+                .filter((guest) => ('partner' in values ? guest.partner === values.partner : true))
+                .filter((guest) => ('children' in values ? guest.children === values.children : true)),
         [values, guests],
     );
 
@@ -55,7 +56,7 @@ const Admin: NextPage = () => {
         if (e.target.name === 'attending' || e.target.name === 'partner' || e.target.name === 'children') {
             setValues({
                 ...values,
-                [e.target.name]: e.target.value,
+                [e.target.name]: stringToBool(e.target.value),
             });
         }
     };
@@ -186,7 +187,7 @@ const Admin: NextPage = () => {
                                         Total number of guests: {guestList.length}
                                     </Typography>
                                 </Paper>
-                                {!Object.keys(values).length
+                                {Object.keys(values).length
                                     ? guestList.map((guest) => <UserCard key={guest._id} guest={guest} />)
                                     : guests.map((guest) => <UserCard key={guest._id} guest={guest} />)}
                             </Box>
