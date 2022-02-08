@@ -35,6 +35,11 @@ const UserCard = ({ guest }: Props) => (
                         Number of children: {guest.numberOfChildren}
                     </Typography>
                 )}
+                {guest.diet && (
+                    <Typography sx={{ mt: 1.5 }} color="text.secondary">
+                        Dietry requirements: {guest.diet}
+                    </Typography>
+                )}
             </CardContent>
         </Card>
     </Box>
