@@ -68,6 +68,8 @@ const Admin: NextPage = () => {
         }
     };
 
+    const handleClick = () => {};
+
     const getAdminGuestList = async () => {
         const res = await fetch('/api/admin-guest-list');
         const data = await res.json();
@@ -142,7 +144,9 @@ const Admin: NextPage = () => {
                                                     <FormControlLabel value="no" control={<Radio />} label="No" />
                                                     <FormControlLabel value="maybe" control={<Radio />} label="Maybe" />
                                                 </RadioGroup>
-                                                <Button variant="outlined">Remove filter</Button>
+                                                <Button onClick={handleClick} id="attending" variant="outlined">
+                                                    Remove filter
+                                                </Button>
                                             </FormControl>
                                         </Grid>
                                         <Grid
@@ -162,7 +166,9 @@ const Admin: NextPage = () => {
                                                     <FormControlLabel value control={<Radio />} label="Yes" />
                                                     <FormControlLabel value={false} control={<Radio />} label="No" />
                                                 </RadioGroup>
-                                                <Button variant="outlined">Remove filter</Button>
+                                                <Button onClick={handleClick} id="partner" variant="outlined">
+                                                    Remove filter
+                                                </Button>
                                             </FormControl>
                                         </Grid>
                                         <Grid
@@ -172,7 +178,7 @@ const Admin: NextPage = () => {
                                             sx={{ display: 'flex', justifyContent: 'flex-start' }}
                                         >
                                             <FormControl>
-                                                <FormLabel id="partner">Bringing children:</FormLabel>
+                                                <FormLabel id="children">Bringing children:</FormLabel>
                                                 <RadioGroup
                                                     onChange={handleChange}
                                                     aria-labelledby="rsvp-radio-buttons-group-label"
@@ -182,7 +188,9 @@ const Admin: NextPage = () => {
                                                     <FormControlLabel value control={<Radio />} label="Yes" />
                                                     <FormControlLabel value={false} control={<Radio />} label="No" />
                                                 </RadioGroup>
-                                                <Button variant="outlined">Remove filter</Button>
+                                                <Button onClick={handleClick} id="children" variant="outlined">
+                                                    Remove filter
+                                                </Button>
                                             </FormControl>
                                         </Grid>
                                         <Grid
@@ -202,7 +210,9 @@ const Admin: NextPage = () => {
                                                     <FormControlLabel value control={<Radio />} label="Yes" />
                                                     <FormControlLabel value={false} control={<Radio />} label="No" />
                                                 </RadioGroup>
-                                                <Button variant="outlined">Remove filter</Button>
+                                                <Button onClick={handleClick} id="diet" variant="outlined">
+                                                    Remove filter
+                                                </Button>
                                             </FormControl>
                                         </Grid>
                                     </Grid>
