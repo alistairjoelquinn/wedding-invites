@@ -46,6 +46,12 @@ const theme = createTheme({
             p {
                 margin: 0;
             }
+            a {
+                color: rgb(198, 110, 73);
+            }
+            a:visited {
+                color: rgb(198, 110, 73);
+            }
           `,
         },
     },

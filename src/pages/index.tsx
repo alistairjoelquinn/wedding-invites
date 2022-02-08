@@ -109,7 +109,15 @@ const Home: NextPage = () => {
                                 <p>If you are travelling from abroad, your gift to us is your presence.</p>
                                 <p>
                                     Those who would like to help us furnish a new home in Berlin, we welcome
-                                    contributions here.
+                                    contributions{' '}
+                                    <a
+                                        rel="noreferrer noopener"
+                                        target="_blank"
+                                        href="http://www.leetchi.com/c/our-wedding-cash-fund"
+                                    >
+                                        here
+                                    </a>
+                                    .
                                 </p>
                             </Box>
                         </Paper>
