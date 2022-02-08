@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
-import { Container, Button, Typography, Paper, Box, List, ListItem, ListItemText } from '@mui/material';
+import { Container, Button, Typography, Paper, Box, List, ListItem, ListItemText, ListItemAvatar } from '@mui/material';
 import type { NextPage } from 'next';
 
 import spin from '@/styles/spin.module.css';
@@ -71,29 +71,6 @@ const Home: NextPage = () => {
                             }}
                         >
                             <Typography
-                                sx={{
-                                    mt: 3,
-                                    mb: 2,
-                                    fontFamily: 'Comfortaa',
-                                    letterSpacing: '1px',
-                                    textAlign: 'center',
-                                }}
-                                variant="h3"
-                            >
-                                Event Details
-                            </Typography>
-                            <Typography
-                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
-                                variant="h3"
-                            >
-                                Venue
-                            </Typography>
-                            <List>
-                                <ListItem key="venue" sx={{ textAlign: 'center' }}>
-                                    <ListItemText primary="The venue is TBC, but it will be somewhere family-friendly in Berlin." />
-                                </ListItem>
-                            </List>
-                            <Typography
                                 sx={{ mt: 2, mb: 2, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
                                 variant="h3"
                             >
@@ -104,9 +81,11 @@ const Home: NextPage = () => {
                             </Typography>
                             <List>
                                 {content.saturday.map((item) => (
-                                    <ListItem key={item} sx={{ pb: 0, textAlign: 'center' }}>
-                                        <ListItemText primary={item} />
-                                    </ListItem>
+                                    <>
+                                        <ListItem key={item} sx={{ pb: 0, textAlign: 'center' }}>
+                                            <ListItemText primary={item} />
+                                        </ListItem>
+                                    </>
                                 ))}
                             </List>
                             <Typography sx={{ mt: 1, fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
@@ -118,6 +97,17 @@ const Home: NextPage = () => {
                                         <ListItemText primary={item} />
                                     </ListItem>
                                 ))}
+                            </List>
+                            <Typography
+                                sx={{ mt: 2, mb: 1, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
+                                variant="h3"
+                            >
+                                Venue
+                            </Typography>
+                            <List>
+                                <ListItem key="venue" sx={{ textAlign: 'center' }}>
+                                    <ListItemText primary="The venue is TBC, but it will be somewhere family-friendly in Berlin." />
+                                </ListItem>
                             </List>
                             <Typography
                                 sx={{ mt: 2, mb: 0, fontFamily: 'Comfortaa', letterSpacing: '1px' }}
