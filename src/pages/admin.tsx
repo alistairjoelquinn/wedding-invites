@@ -76,7 +76,7 @@ const Admin: NextPage = () => {
             const newVals = prev;
             delete newVals[current];
             console.log('newVals: ', newVals);
-            return newVals;
+            return { ...newVals };
         });
     };
 
