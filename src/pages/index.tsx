@@ -77,41 +77,41 @@ const Home: NextPage = () => {
                             <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Saturday
                             </Typography>
-                            <Typography sx={{ m: 3, textAlign: 'center' }}>
+                            <Box sx={{ m: 3, textAlign: 'center' }}>
                                 {content.saturday.map((item) => (
-                                    <div key={item}>{item}</div>
+                                    <p key={item}>{item}</p>
                                 ))}
-                            </Typography>
+                            </Box>
                             <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '0.5px' }} variant="h5">
                                 Sunday
                             </Typography>
-                            <Typography sx={{ m: 3, textAlign: 'center' }}>
-                                <div>We’ll meet again for fun in the sun - details TBC.</div>
-                            </Typography>
+                            <Box sx={{ m: 3, textAlign: 'center' }}>
+                                <p>We’ll meet again for fun in the sun - details TBC.</p>
+                            </Box>
                             <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '1px' }} variant="h3">
                                 Venue
                             </Typography>
-                            <Typography sx={{ m: 3, textAlign: 'center' }}>
-                                <div>The venue is TBC, but it will be somewhere family-friendly in Berlin.</div>
-                            </Typography>
+                            <Box sx={{ m: 3, textAlign: 'center' }}>
+                                <p>The venue is TBC, but it will be somewhere family-friendly in Berlin.</p>
+                            </Box>
                             <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '1px' }} variant="h3">
                                 Hotels
                             </Typography>
-                            <Typography sx={{ m: 3, textAlign: 'center' }}>
+                            <Box sx={{ m: 3, textAlign: 'center' }}>
                                 {content.hotels.map((item) => (
-                                    <div key={item}>{parse(item)}</div>
+                                    <p key={item}>{parse(item)}</p>
                                 ))}
-                            </Typography>
+                            </Box>
                             <Typography sx={{ fontFamily: 'Comfortaa', letterSpacing: '1px' }} variant="h3">
                                 Gifts
                             </Typography>
-                            <Typography sx={{ m: 3, textAlign: 'center' }}>
-                                <div>If you are travelling from abroad, your gift to us is your presence.</div>
-                                <div>
+                            <Box sx={{ m: 3, textAlign: 'center' }}>
+                                <p>If you are travelling from abroad, your gift to us is your presence.</p>
+                                <p>
                                     Those who would like to help us furnish a new home in Berlin, we welcome
                                     contributions here.
-                                </div>
-                            </Typography>
+                                </p>
+                            </Box>
                         </Paper>
                     </Container>
                 </Container>

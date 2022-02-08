@@ -43,6 +43,9 @@ const theme = createTheme({
                     font-size: 30px;
                 }
             }
+            p {
+                margin: 0;
+            }
           `,
         },
     },

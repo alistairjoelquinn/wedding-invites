@@ -1,5 +1,7 @@
 import { Grid, TextField, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Slider } from '@mui/material';
 import { useState } from 'react';
+
+import stringToBool from '@/lib/stringToBool';
 import { useAppDispatch } from './context';
 
 const AddressForm = () => {
@@ -7,11 +9,10 @@ const AddressForm = () => {
     const [sliderValue, setSliderValue] = useState<{ numberOfChildren: number | number[] }>({ numberOfChildren: 0 });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.dir('LOKKKY', e.target);
         dispatch({
             type: 'UPDATE_USER_VALUES',
             payload: {
-                [e.target.name]: e.target.value,
+                [e.target.name]: stringToBool(e.target.value),
             },
         });
     };
