@@ -34,7 +34,6 @@ const Admin: NextPage = () => {
     const [error, setError] = useState('');
     const [guests, setGuests] = useState<Guest[]>([]);
     const [values, setValues] = useState<ToggleValues>({});
-    console.log('values: ', values);
     const router = useRouter();
     const { data: session } = useSession({
         required: true,
@@ -178,13 +177,19 @@ const Admin: NextPage = () => {
                                         Number of responses: {guestList.length}
                                     </Typography>
                                     <Typography sx={{ mt: 1.5 }} color="text.secondary">
-                                        Number of adults: {guestList.length}
+                                        Number of adults: {guestList.reduce((a, b) => a + 1 + (b.partner ? 1 : 0), 0)}
                                     </Typography>
                                     <Typography sx={{ mt: 1.5 }} color="text.secondary">
-                                        Number of children: {guestList.length}
+                                        Number of children:{' '}
+                                        {guestList.reduce((a, b) => a + (b.children ? b.numberOfChildren : 0), 0)}
                                     </Typography>
                                     <Typography sx={{ mt: 1.5 }} color="text.secondary">
-                                        Total number of guests: {guestList.length}
+                                        Total number of guests:{' '}
+                                        {guestList.reduce(
+                                            (a, b) =>
+                                                a + 1 + (b.partner ? 1 : 0) + (b.children ? b.numberOfChildren : 0),
+                                            0,
+                                        )}
                                     </Typography>
                                 </Paper>
                                 {Object.keys(values).length
