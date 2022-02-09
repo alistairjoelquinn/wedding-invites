@@ -33,7 +33,7 @@ function checkResponse(rsvp) {
         `;
     } else if (rsvp.attending === 'no') {
         response = `
-            You received another response to wedding. ${rsvp.fullName} is not able to attend.
+            You received another response to the wedding. ${rsvp.fullName} is not able to attend.
         `;
     }
     return response;
