@@ -1,6 +1,5 @@
 import { getSession } from 'next-auth/react';
-import aws, { AWSError } from 'aws-sdk';
-import { SendEmailResponse } from 'aws-sdk/clients/ses';
+import aws from 'aws-sdk';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { validateIncomingValues } from '@/lib/validateIncomingValues';
