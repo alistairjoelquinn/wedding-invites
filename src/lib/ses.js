@@ -36,27 +36,31 @@ function checkResponse(rsvp) {
             You received another response to the wedding. ${rsvp.fullName} is not able to attend.
         `;
     }
+    console.log('RESPONSE function is running');
     return response;
 }
 
 
-exports.sendEmail = (rsvp) => ses
-    .sendEmail({
-        Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
-        Destination: {
-            ToAddresses: [process.env.USER_EMAIL],
-        },
-        Message: {
-            Body: {
-                Text: {
-                    Data: checkResponse(rsvp),
+exports.sendEmail = (rsvp) => {
+    console.log('rsvp REACHES SEND EMAIL: ', rsvp);
+    return ses
+        .sendEmail({
+            Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
+            Destination: {
+                ToAddresses: [process.env.USER_EMAIL],
+            },
+            Message: {
+                Body: {
+                    Text: {
+                        Data: checkResponse(rsvp),
+                    },
+                },
+                Subject: {
+                    Data: `Wedding response from ${rsvp.fullName}`,
                 },
             },
-            Subject: {
-                Data: `Wedding response from ${rsvp.fullName}`,
-            },
-        },
-    })
-    .promise()
-    .then(() => console.log('Email sent'))
-    .catch((err) => console.log(err))
+        })
+        .promise()
+        .then(() => console.log('Email sent'))
+        .catch((err) => console.log(err))
+}
