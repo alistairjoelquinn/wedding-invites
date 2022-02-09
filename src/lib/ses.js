@@ -42,7 +42,7 @@ function checkResponse(rsvp) {
 
 exports.sendEmail = (rsvp) => ses
     .sendEmail({
-        Source: `Wedding Invitation Response <${process.env.USER_EMAIL}>`,
+        Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
         Destination: {
             ToAddresses: [process.env.USER_EMAIL],
         },
