@@ -32,31 +32,24 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.log('DATA WAS insert into the DB');
 
     await ses
-        .sendEmail(
-            {
-                Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
-                Destination: {
-                    ToAddresses: [process.env.ADMIN_EMAIL as string],
-                },
-                Message: {
-                    Body: {
-                        Text: {
-                            Data: checkResponse(req.body) as string,
-                        },
-                    },
-                    Subject: {
-                        Data: `Wedding response from ${req.body.fullName}`,
+        .sendEmail({
+            Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
+            Destination: {
+                ToAddresses: [process.env.ADMIN_EMAIL as string],
+            },
+            Message: {
+                Body: {
+                    Text: {
+                        Data: checkResponse(req.body) as string,
                     },
                 },
+                Subject: {
+                    Data: `Wedding response from ${req.body.fullName}`,
+                },
             },
-            (err: AWSError, data: SendEmailResponse) => {
-                if (err) console.log(err, err.stack);
-                else console.log(data);
-            },
-        )
+        })
         .promise()
-        .then(() => console.log('Email sent'))
-        .catch((err) => console.log(err));
+        .catch((err) => console.log('err sending email', err.message));
 
     return res.json({ success: acknowledged ? 'true' : 'false' });
 };
