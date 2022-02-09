@@ -11,7 +11,7 @@ function checkResponse(rsvp) {
     let response;
     if (rsvp.attending === 'yes') {
         response = `
-            You received another response to wedding! ${rsvp.fullName} is going to attend!
+            You received another response to the wedding! ${rsvp.fullName} is going to attend!
 
             ${rsvp.partner === "true" ? `They are bringing a plus one called ${rsvp.partnerName}.` : `They are coming alone.`}
 
@@ -22,7 +22,7 @@ function checkResponse(rsvp) {
         `;
     } else if (rsvp.attending === 'maybe') {
         response = `
-            You received another response to wedding! ${rsvp.fullName} is a maybe for now.
+            You received another response to the wedding! ${rsvp.fullName} is a maybe for now.
 
             ${rsvp.partner ? `If they do come they are bringing a plus one called ${rsvp.partnerName}.` : `If they do come they are coming alone.`}
 
