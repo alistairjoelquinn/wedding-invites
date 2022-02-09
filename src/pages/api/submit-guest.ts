@@ -1,8 +1,10 @@
 import { getSession } from 'next-auth/react';
+import aws, { AWSError } from 'aws-sdk';
+import { SendEmailResponse } from 'aws-sdk/clients/ses';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { validateIncomingValues } from '@/lib/validateIncomingValues';
 import connectToDatabase from '@/lib/mongodb';
-import aws from 'aws-sdk';
 import { checkResponse } from '@/lib/ses';
 
 const ses = new aws.SES({
@@ -11,7 +13,7 @@ const ses = new aws.SES({
     region: 'eu-central-1',
 });
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.log('ROUTE HIT');
     const session = await getSession({ req });
 
@@ -30,26 +32,31 @@ export default async (req, res) => {
     console.log('DATA WAS insert into the DB');
 
     await ses
-        .sendEmail({
-            Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
-            Destination: {
-                ToAddresses: [process.env.ADMIN_EMAIL],
-            },
-            Message: {
-                Body: {
-                    Text: {
-                        Data: checkResponse(req.body),
+        .sendEmail(
+            {
+                Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
+                Destination: {
+                    ToAddresses: [process.env.ADMIN_EMAIL as string],
+                },
+                Message: {
+                    Body: {
+                        Text: {
+                            Data: checkResponse(req.body) as string,
+                        },
+                    },
+                    Subject: {
+                        Data: `Wedding response from ${req.body.fullName}`,
                     },
                 },
-                Subject: {
-                    Data: `Wedding response from ${req.body.fullName}`,
-                },
             },
-        })
+            (err: AWSError, data: SendEmailResponse) => {
+                if (err) console.log(err, err.stack);
+                else console.log(data);
+            },
+        )
         .promise()
         .then(() => console.log('Email sent'))
-        .catch((err) => console.log(err))
-    console.log('EMAIL was sent');
+        .catch((err) => console.log(err));
 
     return res.json({ success: acknowledged ? 'true' : 'false' });
 };
