@@ -1,13 +1,5 @@
 /* eslint-disable prettier/prettier */
-const aws = require('aws-sdk');
-
-const ses = new aws.SES({
-    accessKeyId: process.env.AWS_S3_KEY,
-    secretAccessKey: process.env.AWS_S3_SECRET,
-    region: 'eu-central-1',
-});
-
-function checkResponse(rsvp) {
+exports.checkResponse = (rsvp) => {
     let response;
     if (rsvp.attending === 'yes') {
         response = `
@@ -40,27 +32,3 @@ function checkResponse(rsvp) {
     return response;
 }
 
-
-exports.sendEmail = (rsvp) => {
-    console.log('rsvp REACHES SEND EMAIL: ', rsvp);
-    return ses
-        .sendEmail({
-            Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
-            Destination: {
-                ToAddresses: [process.env.USER_EMAIL],
-            },
-            Message: {
-                Body: {
-                    Text: {
-                        Data: checkResponse(rsvp),
-                    },
-                },
-                Subject: {
-                    Data: `Wedding response from ${rsvp.fullName}`,
-                },
-            },
-        })
-        .promise()
-        .then(() => console.log('Email sent'))
-        .catch((err) => console.log(err))
-}

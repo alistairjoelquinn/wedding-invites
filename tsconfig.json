@@ -34,5 +34,5 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/_app.tsx", "src/pages/_document.tsx", "src/hooks/useForm.js"  ]
+, "src/pages/_app.tsx", "src/pages/_document.tsx", "src/hooks/useForm.js", "src/pages/api/submit-guest.js"  ]
 }
