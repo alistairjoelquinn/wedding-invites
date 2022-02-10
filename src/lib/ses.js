@@ -28,7 +28,6 @@ exports.checkResponse = (rsvp) => {
             You received another response to the wedding. ${rsvp.fullName} is not able to attend.
         `;
     }
-    console.log('RESPONSE function is running');
     return response;
 }
 
