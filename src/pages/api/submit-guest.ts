@@ -52,7 +52,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             .promise()
             .catch((err) => {
                 console.log('err sending email', err.message);
-                error = true;
+                error = err.message;
             });
         console.log('sesResponse: ', sesResponse);
         if (error) {
