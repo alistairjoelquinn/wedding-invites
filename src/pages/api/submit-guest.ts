@@ -6,12 +6,6 @@ import { validateIncomingValues } from '@/lib/validateIncomingValues';
 import connectToDatabase from '@/lib/mongodb';
 import { checkResponse } from '@/lib/ses';
 
-const ses = new aws.SES({
-    accessKeyId: process.env.AWS_S3_KEY,
-    secretAccessKey: process.env.AWS_S3_SECRET,
-    region: 'eu-central-1',
-});
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.log('ROUTE HIT');
     const session = await getSession({ req });
@@ -32,7 +26,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
         let error;
-        const sesResponse = await ses
+        await new aws.SES({
+            accessKeyId: process.env.AWS_S3_KEY,
+            secretAccessKey: process.env.AWS_S3_SECRET,
+            region: 'eu-central-1',
+        })
             .sendEmail({
                 Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
                 Destination: {
@@ -54,7 +52,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 console.log('err sending email', err.message);
                 error = err.message;
             });
-        console.log('sesResponse: ', sesResponse);
         if (error) {
             return res.json({ success: 'false', error });
         }
