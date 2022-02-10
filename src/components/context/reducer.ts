@@ -16,7 +16,6 @@ export const reducer = (state = initialState, action: Action) => {
         return action.payload.rsvp;
     }
     if (action.type === 'UPDATE_USER_VALUES') {
-        console.log('action', action.payload);
         return {
             ...state,
             ...action.payload,
