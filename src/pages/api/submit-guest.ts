@@ -31,7 +31,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.log('DATA WAS insert into the DB');
 
     try {
-        await ses
+        let error;
+        const sesResponse = await ses
             .sendEmail({
                 Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
                 Destination: {
@@ -49,7 +50,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 },
             })
             .promise()
-            .catch((err) => console.log('err sending email', err.message));
+            .catch((err) => {
+                console.log('err sending email', err.message);
+                error = true;
+            });
+        console.log('sesResponse: ', sesResponse);
+        if (error) {
+            return res.json({ success: 'false' });
+        }
         return res.json({ success: acknowledged ? 'true' : 'false' });
     } catch (err) {
         return console.log('ERROR sending email TO CLIENT: ', err);
