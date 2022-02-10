@@ -30,25 +30,28 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { acknowledged } = await db.collection('rsvps').insertOne(req.body);
     console.log('DATA WAS insert into the DB');
 
-    await ses
-        .sendEmail({
-            Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
-            Destination: {
-                ToAddresses: [process.env.ADMIN_EMAIL as string],
-            },
-            Message: {
-                Body: {
-                    Text: {
-                        Data: checkResponse(req.body) as string,
+    try {
+        await ses
+            .sendEmail({
+                Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
+                Destination: {
+                    ToAddresses: [process.env.ADMIN_EMAIL as string],
+                },
+                Message: {
+                    Body: {
+                        Text: {
+                            Data: checkResponse(req.body) as string,
+                        },
+                    },
+                    Subject: {
+                        Data: `Wedding response from ${req.body.fullName}`,
                     },
                 },
-                Subject: {
-                    Data: `Wedding response from ${req.body.fullName}`,
-                },
-            },
-        })
-        .promise()
-        .catch((err) => console.log('err sending email', err.message));
-
-    return res.json({ success: acknowledged ? 'true' : 'false' });
+            })
+            .promise()
+            .catch((err) => console.log('err sending email', err.message));
+        return res.json({ success: acknowledged ? 'true' : 'false' });
+    } catch (err) {
+        return console.log('ERROR sending email TO CLIENT: ', err);
+    }
 };
