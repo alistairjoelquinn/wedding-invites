@@ -29,7 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             .sendEmail({
                 Source: `Wedding Invitation Response <${process.env.ADMIN_EMAIL}>`,
                 Destination: {
-                    ToAddresses: [process.env.ADMIN_EMAIL as string],
+                    ToAddresses: [process.env.USER_EMAIL as string],
                 },
                 Message: {
                     Body: {
