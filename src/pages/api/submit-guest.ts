@@ -20,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { acknowledged } = await db.collection('rsvps').insertOne(req.body);
 
     try {
-        let error;
+        let errorSesCheck;
         await new aws.SES({
             accessKeyId: process.env.AWS_S3_KEY,
             secretAccessKey: process.env.AWS_S3_SECRET,
@@ -45,10 +45,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             .promise()
             .catch((err) => {
                 console.log('err sending email', err.message);
-                error = err.message;
+                errorSesCheck = err.message;
             });
         if (error) {
-            return res.json({ success: 'false', error });
+            return res.json({ success: 'false', errorSesCheck });
         }
         return res.json({ success: acknowledged ? 'true' : 'false' });
     } catch (err) {
