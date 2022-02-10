@@ -56,7 +56,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             });
         console.log('sesResponse: ', sesResponse);
         if (error) {
-            return res.json({ success: 'false' });
+            return res.json({ success: 'false', error });
         }
         return res.json({ success: acknowledged ? 'true' : 'false' });
     } catch (err) {
