@@ -47,7 +47,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 console.log('err sending email', err.message);
                 errorSesCheck = err.message;
             });
-        if (error) {
+        if (errorSesCheck) {
             return res.json({ success: 'false', errorSesCheck });
         }
         return res.json({ success: acknowledged ? 'true' : 'false' });
