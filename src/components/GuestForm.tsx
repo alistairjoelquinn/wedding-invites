@@ -28,11 +28,15 @@ const GuestForm = () => {
                 body: JSON.stringify(state),
             });
             const data = await res.json();
+            console.log('data: ', data);
             if (data.error) {
                 setSending(false);
                 setError(data.error);
-            } else if (data) {
+            } else if (data.success === 'true') {
                 router.push('/thanks');
+            } else {
+                setSending(false);
+                setError('Something unexpected went wrong!');
             }
         }
     };
