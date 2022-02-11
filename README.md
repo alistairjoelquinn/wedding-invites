@@ -20,14 +20,14 @@ Once submitted, guests will see a custom thank you message depending on their re
 
 ![thanks message](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644565042/wedding/thanks_prgash.png)
 
-The application has an admin dashboard for managing responses. The main user can access this by visiting the `/admin`. Two stage auth is being used to access the dashboard as in contains all user information. Without an appropriate session object, a user would be redirected before being able to enter the additional admin password.
+The application has an admin dashboard for managing responses. The main user can access this by visiting `/admin`. Two stage auth is being used to access the dashboard as in contains all user information. Without an appropriate session object, a user would be redirected before being able to enter the additional admin password.
 
 ![Admin login](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644565042/wedding/admin-login_hrmrdw.png)
 
-Having entered the admin password correctly, the main user can see each guest with their response details list one by one.
+Having entered the admin password correctly, the main user can see each guest with their responses listed one by one.
 
 ![admin panel](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644566330/wedding/admin-1_aj83fj.png)
 
-In order to conveniently access the data the user needs, RSVPs can be filter on certain criteria.
+In order to conveniently access the data the user needs, RSVPs can be filtered on certain criteria.
 
 ![admin panel filters](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644566330/wedding/admin-2_poi1fd.png)
