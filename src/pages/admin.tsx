@@ -76,12 +76,6 @@ const Admin: NextPage = () => {
             delete newVals[current];
             return { ...newVals };
         });
-
-        if (current === 'attending') {
-            console.log('attending');
-            console.dir(attending!);
-            attending.current.value = null;
-        }
     };
 
     const getAdminGuestList = async () => {
