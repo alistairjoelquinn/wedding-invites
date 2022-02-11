@@ -28,6 +28,6 @@ Having entered the admin password correctly, the main user can see each guest wi
 
 ![admin panel](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644566330/wedding/admin-1_aj83fj.png)
 
-In order to conveniently access the data the user needs, RSVPs can be filtered on certain criteria.
+In order to conveniently access the data the user needs, RSVPs can be filtered on certain criteria. Numbers for each of the response values are being stored in state and will update in real-time.
 
 ![admin panel filters](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644566330/wedding/admin-2_poi1fd.png)
