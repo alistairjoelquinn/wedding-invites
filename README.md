@@ -4,9 +4,8 @@ This application allows the user to manage RSVPs to their wedding from a single 
 
 ![Login handled using NextAuth](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644564783/wedding/login_pfl4kn.png)
 
-Once logged in, users will arrive on the home page giving them all the information they need about the wedding.
+Once logged in, users will arrive on a scrollable home page giving them all the information they need about the wedding.
 
-![Home page 1](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644566333/wedding/index-1_bbf1lr.png)
 ![Home page 2](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644566333/wedding/index-2_wl7aoo.png)
 
 To RSVP users click on the button taking them to the RVSP form.
