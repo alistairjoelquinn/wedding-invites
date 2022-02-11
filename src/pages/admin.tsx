@@ -12,7 +12,7 @@ import {
     Button,
 } from '@mui/material';
 import type { NextPage } from 'next';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
@@ -31,6 +31,7 @@ interface ToggleValues {
 }
 
 const Admin: NextPage = () => {
+    const attending = useRef();
     const [adminAuthenticated, setAdminAuthenticated] = useState(false);
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -75,6 +76,12 @@ const Admin: NextPage = () => {
             delete newVals[current];
             return { ...newVals };
         });
+
+        if (current === 'attending') {
+            console.log('attending');
+            console.dir(attending!);
+            attending.current.value = null;
+        }
     };
 
     const getAdminGuestList = async () => {
@@ -141,6 +148,7 @@ const Admin: NextPage = () => {
                                             <FormControl>
                                                 <FormLabel id="attending">Attending:</FormLabel>
                                                 <RadioGroup
+                                                    ref={attending}
                                                     onChange={handleChange}
                                                     aria-labelledby="rsvp-radio-buttons-group-label"
                                                     defaultValue={false}
