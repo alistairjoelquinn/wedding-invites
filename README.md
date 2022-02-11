@@ -6,4 +6,6 @@ This application allows the user to manage RSVPs to their wedding from a single 
 
 Once logged in, users will arrive on the home page giving them all the information they need aobut the wedding.
 
-![Home Page](https://res.cloudinary.com/dtirfwiy8/video/upload/v1644564768/wedding/index_eaqaso.mov)
+<video width="320" height="240" controls>
+  <source src="https://res.cloudinary.com/dtirfwiy8/video/upload/v1644564768/wedding/index_eaqaso.mov" type="video/quicktime">
+</video>
