@@ -4,8 +4,19 @@ This application allows the user to manage RSVPs to their wedding from a single 
 
 ![Login handled using NextAuth](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644564783/wedding/login_pfl4kn.png)
 
-Once logged in, users will arrive on the home page giving them all the information they need aobut the wedding.
+Once logged in, users will arrive on the home page giving them all the information they need about the wedding.
 
-<video width="320" height="240" controls>
-  <source src="https://res.cloudinary.com/dtirfwiy8/video/upload/v1644564768/wedding/index_eaqaso.mov" type="video/quicktime">
-</video>
+![Home page 1](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644566333/wedding/index-1_bbf1lr.png)
+![Home page 2](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644566333/wedding/index-2_wl7aoo.png)
+
+To RSVP users click on the button taking them to the RVSP form.
+
+![User form](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644565042/wedding/form-filled_izlgod.png)
+
+Form fields have been made using [Material UI](https://github.com/mui).
+
+![User form filled](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644565042/wedding/form-filled_izlgod.png)
+
+Once submitted, users will see a custom welcome message depending on their response.
+
+![thanks message](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644565042/wedding/thanks_prgash.png)
