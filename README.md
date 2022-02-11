@@ -16,15 +16,15 @@ Form fields have been made using [Material UI](https://github.com/mui).
 
 ![User form filled](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644565042/wedding/form-filled_izlgod.png)
 
-Once submitted, guests will see a custom welcome message depending on their response. Additionally, and email will be sent to the main user informing them a response has been sent and informing them of it's contents. Mail out has be handled using [AWS SES](https://github.com/alistairjoelquinn/wedding-invites/blob/main/src/pages/api/submit-guest.ts).
+Once submitted, guests will see a custom thank you message depending on their response. Additionally, an email will be sent to the main user containing the response. Mail out has be handled using [AWS SES](https://github.com/alistairjoelquinn/wedding-invites/blob/main/src/pages/api/submit-guest.ts).
 
 ![thanks message](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644565042/wedding/thanks_prgash.png)
 
-The application also has an admin dashboard for managing responses. When the main user visits the `/admin` route they are presented with an additional admin password to enter in order to be able to access the dashboard. Two stage auth is being used to access user information a this his page would first of all redirect before being able to enter an admin password without an appropriate session.
+The application has an admin dashboard for managing responses. The main user can access this by visiting the `/admin`. Two stage auth is being used to access the dashboard as in contains all user information. Without an appropriate session object, a user would be redirected before being able to enter the additional admin password.
 
 ![Admin login](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644565042/wedding/admin-login_hrmrdw.png)
 
-Once on the admin dashboard, the main user can see each guest with their response details list one by one.
+Having entered the admin password correctly, the main user can see each guest with their response details list one by one.
 
 ![admin panel](https://res.cloudinary.com/dtirfwiy8/image/upload/v1644566330/wedding/admin-1_aj83fj.png)
 
