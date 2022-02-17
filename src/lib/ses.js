@@ -5,7 +5,7 @@ exports.checkResponse = (rsvp) => {
         response = `
             You received another response to the wedding! ${rsvp.fullName} is going to attend!
 
-            ${rsvp.partner === "true" ? `They are bringing a plus one called ${rsvp.partnerName}.` : `They are coming alone.`}
+            ${rsvp.partner ? `They are bringing a plus one called ${rsvp.partnerName}.` : `They are coming alone.`}
 
             ${rsvp.children
                 ? `They are bringing ${rsvp.numberOfChildren} children.`
