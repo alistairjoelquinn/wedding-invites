@@ -35,7 +35,7 @@ const Custom404: NextPage = () => {
                 }}
             >
                 <Typography sx={{ pt: 2, textAlign: 'center' }} variant="h5">
-                    Oops! It looks like something went wrong...
+                    Oopsie! It looks like something went wrong...
                 </Typography>
                 <Typography sx={{ pt: 2, textAlign: 'center' }} variant="h5">
                     Click on the button to return to safety
